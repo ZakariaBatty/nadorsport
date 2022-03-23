@@ -13,30 +13,30 @@ require_once './views/include/header.php';
 
             <div class="row portfolio-container">
                 <div class="col-lg-4 col-md-6 portfolio-item">
-                    <img src="assets/img/portfolio/terrain.png" class="img-fluid" alt="">
+                    <img src="assets/img/portfolio/terrain1 (1).png" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>tirrain 1</h4>
                         <p>tirrain 1</p>
-                        <a href="assets/img/portfolio/terrain.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 1"><i class="bx bx-plus"></i>Réservez</a>
+                        <a href="assets/img/portfolio/terrain1 (1).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 1"><i class="bx bx-plus"></i>Réservez</a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item">
-                    <img src="assets/img/portfolio/terrain.png" class="img-fluid" alt="">
+                    <img src="assets/img/portfolio/terrain1 (2).png" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>tirrain 2</h4>
                         <p>Catirrain rd</p>
-                        <a href="assets/img/portfolio/terrain.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 2"><i class="bx bx-plus"></i>Réservez</a>
+                        <a href="assets/img/portfolio/terrain1 (2).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 2"><i class="bx bx-plus"></i>Réservez</a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 portfolio-item">
-                    <img src="assets/img/portfolio/terrain.png" class="img-fluid" alt="">
+                    <img src="assets/img/portfolio/terrain1 (3).png" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>tirrain 3</h4>
                         <p>tirrain 1</p>
-                        <a href="assets/img/portfolio/terrain.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 3 2"><i class="bx bx-plus"></i>Réservez</a>
+                        <a href="assets/img/portfolio/terrain1 (3).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 3 2"><i class="bx bx-plus"></i>Réservez</a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
                 </div>
@@ -62,7 +62,7 @@ require_once './views/include/header.php';
                                 <div class="pull-right d-none d-md-block ">
                                     <div class="btn-group pb-1 flatpickr" role="group" aria-label="Calendar">
                                         <a href="#" class="btn btn-outline-secondary"><span class="fa-solid fa-arrow-left"></span></a>
-                                        <a href="#" class="btn btn-outline-secondary">TODAY</a>
+                                        <a href="#" class="btn btn-outline-secondary">AUJOURD'HUI</a>
                                         <a href="#" class="btn btn-outline-secondary"><span class="fa-solid fa-arrow-right"></span></a>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@ require_once './views/include/header.php';
                                 <div class="pull-right d-block d-md-none">
                                     <div class="btn-group pb-1 flatpickr" role="group" aria-label="Calendar">
                                         <a href="#" class="btn btn-outline-secondary"><span class="fa-solid fa-arrow-left"></span></a>
-                                        <a href="#" class="btn btn-outline-secondary">TODAY</a>
+                                        <a href="#" class="btn btn-outline-secondary">AUJOURD'HUI</a>
                                         <a href="#" class="btn btn-outline-secondary"><span class="fa-solid fa-arrow-right"></span></a>
                                     </div>
                                 </div>
@@ -800,13 +800,13 @@ require_once './views/include/header.php';
 
                             <div class="card-body">
                                 <div>
-                                    <div class="d-inline-block"><span class="pr-3"><i class="fa-solid fa-square text-success"></i> Disponible</span>
+                                    <div class="d-inline-block"><span class="pr-3"><i class="bx bx-solid bx bx-square text-success"></i> Disponible</span>
                                     </div>
-                                    <div class="d-inline-block"><span class="pr-3"><i class="fa-solid fa-square text-warning"></i> Dernière place</span>
+                                    <div class="d-inline-block"><span class="pr-3"><i class="bx bx-solid bx bx-square text-warning"></i> Dernière place</span>
                                     </div>
-                                    <div class="d-inline-block"><span class="pr-3"><i class="fa-solid fa-square text-danger"></i> Complet</span>
+                                    <div class="d-inline-block"><span class="pr-3"><i class="bx bx-solid bx bx-square text-danger"></i> Complet</span>
                                     </div>
-                                    <div class="d-inline-block"><span class="pr-3"><i class="fa-solid fa-square text-light"></i> Heures de fermeture</span>
+                                    <div class="d-inline-block"><span class="pr-3"><i class="bx bx-solid bx bx-square text-light"></i> Heures de fermeture</span>
                                     </div>
                                 </div>
 
@@ -941,11 +941,11 @@ require_once './views/include/header.php';
                                             T1
                                         </span>
                                         <span class="d-inline-block text-success px-1 ">
-                                            15€
+                                            15dh
                                             / h
                                         </span>
                                         <span class="text-success d-inline-block px-1">
-                                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                            <i class="bx bx-solid bx bx-check" aria-hidden="true"></i>
                                             disponible
                                         </span>
 
@@ -953,13 +953,13 @@ require_once './views/include/header.php';
 
                                         <small>
                                             <span class="text-success d-inline-block px-1">
-                                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                                <i class="bx bx-clock" aria-hidden="true"></i>
                                                 disponible de <b>14:00</b> à <b>16:00</b>
                                             </span>
 
 
                                             <span class="text-success d-inline-block px-1">
-                                                <i class="fa-solid fa-fast-forward" aria-hidden="true"></i>
+                                                <i class="bx bx-solid bx bx-fast-forward" aria-hidden="true"></i>
                                                 Aussi disponible de <b>19:00</b> à <b>19:00</b>
                                             </span>
                                         </small>
@@ -973,11 +973,11 @@ require_once './views/include/header.php';
                                             T2
                                         </span>
                                         <span class="d-inline-block text-success px-1 ">
-                                            15€
+                                            15dh
                                             / h
                                         </span>
                                         <span class="text-success d-inline-block px-1">
-                                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                            <i class="bx bx-solid bx bx-check" aria-hidden="true"></i>
                                             disponible
                                         </span>
 
@@ -985,12 +985,12 @@ require_once './views/include/header.php';
 
                                         <small>
                                             <span class="text-success d-inline-block px-1">
-                                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                                <i class="bx bx-clock" aria-hidden="true"></i>
                                                 disponible de <b>13:00</b> à <b>15:00</b>
                                             </span>
 
                                             <span class="text-success d-inline-block px-1">
-                                                <i class="fa-solid fa-fast-forward" aria-hidden="true"></i>
+                                                <i class="bx-solid  bx-fast-forward" aria-hidden="true"></i>
                                                 Aussi disponible de <b>18:00</b> à <b>19:00</b>
                                             </span>
                                         </small>
@@ -1013,7 +1013,60 @@ require_once './views/include/header.php';
             </div>
     </section>
     <!-- END Réservation -->
-
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ======= TERRAIN section ======= -->
     <section id="services" class="services">
         <div class="container">
@@ -1029,9 +1082,6 @@ require_once './views/include/header.php';
                         <p class="description">Vos membres réservent 24h/24 7j/7 en ligne en toute autonomie.</p>
                     </div>
                 </div>
-                <!-- fas fa-calendar-check
-                fas fa-calendar-altbx
-                fas fa-coins -->
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0">
                     <div class="icon-box">

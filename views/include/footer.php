@@ -12,7 +12,7 @@
                   <div class="col-lg-9 col-md-6 footer-contact">
                       <div class="content-footer d-md-flex" style="justify-content:space-around">
                           <p style="font-size: 28px;" class="para-footer">Pour plus d'information veuillez<br /> <br />
-                              <span style="color:#6273de">nous contacter sur le numéro</span>
+                              <span style="color:#2793F2">nous contacter sur le numéro</span>
                           </p>
                           <h3>0522 00 00 00</h3>
                       </div>
