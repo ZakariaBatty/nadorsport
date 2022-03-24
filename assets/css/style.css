@@ -422,6 +422,30 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Sections choisir
+--------------------------------------------------------------*/
+#hero .choisir-terrain {
+  position: absolute;
+  bottom: -539px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#hero .col-select {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#hero .form-select {
+  padding: 1.6rem 7rem 1.6rem 1.75rem !important;
+  border-radius: 0 !important;
+}
+/*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 section {

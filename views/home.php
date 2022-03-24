@@ -1012,62 +1012,6 @@ require_once './views/include/header.php';
                 </div>
             </div>
     </section>
-    <!-- END Réservation -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ======= TERRAIN section ======= -->
     <section id="services" class="services">
         <div class="container">
 
@@ -1075,7 +1019,7 @@ require_once './views/include/header.php';
                 <h3>SERVICE</h3>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0" style="width:32.5%">
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-calendar-check"></i></div>
                         <h4 class="title"><a href="">Réservation en ligne</a></h4>
@@ -1083,7 +1027,7 @@ require_once './views/include/header.php';
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0" style="width:32.5%">
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-coin"></i></div>
                         <h4 class="title"><a href="">Paiement en ligne</a></h4>
@@ -1091,7 +1035,7 @@ require_once './views/include/header.php';
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0" style="width:32.5%">
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-calendar-check"></i></div>
                         <h4 class="title"><a href="">Disponibilité en temps réel</a></h4>
