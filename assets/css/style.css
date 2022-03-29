@@ -220,7 +220,7 @@ h6 {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #fff;
+  color: black;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -282,7 +282,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover > a {
-  color: #e43c5c;
+  color: #0b5ed7;
 }
 .navbar-mobile .getstarted,
 .navbar-mobile .getstarted:focus {
@@ -311,7 +311,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover > a {
-  color: #e43c5c;
+  color: #0b5ed7;
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
