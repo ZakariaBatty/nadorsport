@@ -6,7 +6,7 @@
               <div class="row">
 
                   <div class="col-lg-3 col-md-6 footer-contact">
-                      <h3> <a href="/" class="logo"><img style="max-width: 63%;" src="assets/img/LogoNadirSport .png" alt="" class="img-fluid"></a>
+                      <h3> <a href="/" class="logo"><img style="max-width: 63%;" src="assets/img/LogoNadirSport 1.png" alt="" class="img-fluid"></a>
                       </h3>
                   </div>
                   <div class="col-lg-9 col-md-6 footer-contact">
