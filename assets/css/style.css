@@ -69,6 +69,7 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   padding: 20px 0;
+  background: white;
 }
 #header .logo {
   font-size: 30px;
@@ -87,7 +88,7 @@ h6 {
 }
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: rgba(0, 0, 0, 0.9);
+  background: white;
   padding: 12px 0;
 }
 
@@ -120,13 +121,14 @@ h6 {
   align-items: center;
   justify-content: space-between;
   font-family: 'Poppins', sans-serif;
-  color: #fff;
+  color: black;
   font-size: 15px;
   padding: 0 4px;
   white-space: nowrap;
   transition: 0.3s;
   letter-spacing: 0.4px;
   position: relative;
+  font-weight: 700;
 }
 .navbar a i,
 .navbar a:focus i {
@@ -141,7 +143,7 @@ h6 {
   height: 2px;
   bottom: -6px;
   left: 0;
-  background-color: #e43c5c;
+  background-color: #0b5ed7;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
@@ -156,7 +158,7 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #fff;
+  color: rgb(19 18 18 / 76%);
 }
 .navbar .dropdown ul {
   display: block;
@@ -318,10 +320,14 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+#button {
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+}
 #hero {
   width: 100%;
   height: 100vh;
-  background: url('../img/bg_2.png') top center;
+  background: url('../img/bg_2.jpg') top center;
   background-size: cover;
   position: relative;
 }
@@ -339,7 +345,7 @@ h6 {
   bottom: 150px;
   top: 0;
   /* left: 53%; */
-  right: 0;
+  right: 60%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -360,13 +366,15 @@ h6 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  text-transform: uppercase;
-  color: #263070;
+  /* text-transform: uppercase; */
+  color: #eee;
 }
 #hero h2 {
   color: #eee;
   margin-bottom: 40px;
-  font-size: 24px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
 }
 #hero .btn-get-started {
   font-family: 'Poppins', sans-serif;
@@ -405,22 +413,35 @@ h6 {
   }
   #hero .hero-container {
     position: absolute;
-    bottom: 150px;
+    bottom: 507px;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    padding: 0px 6px;
-    width: 25rem;
+    right: -40%;
   }
-}
-@media (max-height: 500px) {
-  #hero {
-    height: 150vh;
-  }
-}
 
+  #hero .col-select {
+    width: 303px;
+    margin: 0 auto;
+  }
+  #button {
+    padding: 0.4rem 4rem;
+    border-radius: 0;
+  }
+  #hero .form-select {
+    padding: 0.6rem 7rem 0.6rem 1.75rem !important;
+  }
+  #hero .choisir-terrain {
+    bottom: -157px !important;
+  }
+}
+@media (min-width: 992px) {
+  #services .card-services {
+    width: 27rem;
+  }
+}
 /*--------------------------------------------------------------
 # Sections choisir
 --------------------------------------------------------------*/
@@ -437,13 +458,14 @@ h6 {
 }
 
 #hero .col-select {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  /* padding-left: 0 !important;
+  padding-right: 0 !important; */
 }
 
 #hero .form-select {
-  padding: 1.6rem 7rem 1.6rem 1.75rem !important;
+  padding: 1.6rem 0px 1.6rem 7px !important;
   border-radius: 0 !important;
+  width: 13rem;
 }
 /*--------------------------------------------------------------
 # Sections General
@@ -490,6 +512,11 @@ section {
 @media (min-width: 1024px) {
   .section-title p {
     width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #services .card {
+    width: 27rem;
   }
 }
 
@@ -554,7 +581,7 @@ section {
   padding: 60px 30px;
   position: relative;
   overflow: hidden;
-  background: rgb(147, 192, 31);
+  background: #57a64b;
   transition: all 0.3s ease-in-out;
   z-index: 1;
   text-align: center;
@@ -571,7 +598,7 @@ section {
   z-index: -1;
 }
 .services .icon-box:hover::before {
-  background: rgb(0, 102, 51);
+  background: #2793f2;
   top: 0;
   border-radius: 0px;
 }
@@ -581,7 +608,7 @@ section {
 .services .icon i {
   font-size: 48px;
   line-height: 1;
-  color: #e43c5c;
+  color: white;
   transition: all 0.3s ease-in-out;
 }
 .services .title {

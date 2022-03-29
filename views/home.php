@@ -15,8 +15,8 @@ require_once './views/include/header.php';
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <img src="assets/img/portfolio/terrain1 (1).png" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>tirrain 1</h4>
-                        <p>tirrain 1</p>
+                        <h4>Terrain 1</h4>
+                        <p>Terrain 1</p>
                         <a href="assets/img/portfolio/terrain1 (1).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 1"><i class="bx bx-plus"></i>Réservez</a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
@@ -25,8 +25,8 @@ require_once './views/include/header.php';
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <img src="assets/img/portfolio/terrain1 (2).png" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>tirrain 2</h4>
-                        <p>Catirrain rd</p>
+                        <h4>Terrain 2</h4>
+                        <p>Terrain 2</p>
                         <a href="assets/img/portfolio/terrain1 (2).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 2"><i class="bx bx-plus"></i>Réservez</a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
@@ -34,8 +34,8 @@ require_once './views/include/header.php';
                 <div class="col-lg-4 col-md-6 portfolio-item">
                     <img src="assets/img/portfolio/terrain1 (3).png" class="img-fluid" alt="">
                     <div class="portfolio-info">
-                        <h4>tirrain 3</h4>
-                        <p>tirrain 1</p>
+                        <h4>Terrain 3</h4>
+                        <p>Terrain 3</p>
                         <a href="assets/img/portfolio/terrain1 (3).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 3 2"><i class="bx bx-plus"></i>Réservez</a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
@@ -1018,8 +1018,8 @@ require_once './views/include/header.php';
             <div class="section-title">
                 <h3>SERVICE</h3>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0" style="width:32.5%">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-calendar-check"></i></div>
                         <h4 class="title"><a href="">Réservation en ligne</a></h4>
@@ -1027,15 +1027,15 @@ require_once './views/include/header.php';
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0" style="width:32.5%">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-coin"></i></div>
                         <h4 class="title"><a href="">Paiement en ligne</a></h4>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore dicta sed exercitationem</p>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore dicta</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 p-0" style="width:32.5%">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-calendar-check"></i></div>
                         <h4 class="title"><a href="">Disponibilité en temps réel</a></h4>
