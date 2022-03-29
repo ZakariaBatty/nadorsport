@@ -413,7 +413,7 @@ h6 {
   }
   #hero .hero-container {
     position: absolute;
-    bottom: 507px;
+    bottom: 429px;
     top: 0;
     display: flex;
     justify-content: center;
@@ -431,7 +431,7 @@ h6 {
     border-radius: 0;
   }
   #hero .form-select {
-    padding: 0.6rem 7rem 0.6rem 1.75rem !important;
+    width: 17.3rem !important;
   }
   #hero .choisir-terrain {
     bottom: -157px !important;
