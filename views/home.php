@@ -3,12 +3,13 @@ require_once './views/include/header.php';
 ?>
 <main id="main">
 
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Terrian Section ======= -->
     <section id="portfolio" class="portfolio bg-light">
         <div class="container">
 
             <div class="section-title">
                 <h3>TERRAIN</h3>
+                <a href="<?php echo BASE_URL; ?>all-terrien" style="float: right;font-size: 18px; color: #2793f2;">Voir tous les terrains</a>
             </div>
 
             <div class="row portfolio-container">
@@ -44,7 +45,7 @@ require_once './views/include/header.php';
 
         </div>
     </section>
-    <!-- End Portfolio Section -->
+    <!-- End Terrian Section -->
 
     <!-- REservation  -->
     <section class="py-2 bg-light" id="booking_calendar">
