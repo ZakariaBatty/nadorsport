@@ -1,10 +1,9 @@
 <?php
-require_once './views/include/head.php';
 require_once './autoload.php';
 require_once './controllers/HomeController.php';
 
 $home = new HomeController();
-$pages = ['home', 'about', 'contact', 'terrien', 'all-terrien', 'login', 'register'];
+$pages = ['home', 'about', 'contact', 'terrien', 'all-terrien', 'login', 'register', 'dashbord'];
 
 if (isset($_GET['page'])) :
     if (in_array($_GET['page'], $pages)) :
@@ -16,5 +15,3 @@ if (isset($_GET['page'])) :
 else :
     $home->index('home');
 endif;
-
-require_once './views/include/footer.php';

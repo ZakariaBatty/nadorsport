@@ -1,5 +1,5 @@
 <?php
-require_once './views/include/navBar.php';
+require_once './views/include/headdash.php';
 ?>
 <main id="main">
     <div class="container">
@@ -12,7 +12,9 @@ require_once './views/include/navBar.php';
                             <div class="card-body">
                                 <!-- Logo -->
                                 <div class="app-brand justify-content-center">
-
+                                    <a href="<?php echo BASE_URL; ?>" class="app-brand-link gap-2">
+                                        <img style="max-width: 30%;" src="assets/img/LogoNadirSport 1.png" alt="" class="img-fluid">
+                                    </a>
                                 </div>
                                 <!-- /Logo -->
                                 <h4 class="mb-2">Bienvenue à nador sport 👋</h4>
@@ -27,7 +29,7 @@ require_once './views/include/navBar.php';
                                         <div class="d-flex justify-content-between">
                                             <label class="form-label" for="password">Mot de passe</label>
                                             <a href="auth-forgot-password-basic.html">
-                                                <small>Mot de passe oublié?</small>
+                                                <small class="text-primary">Mot de passe oublié?</small>
                                             </a>
                                         </div>
                                         <div class="input-group input-group-merge">
@@ -49,7 +51,7 @@ require_once './views/include/navBar.php';
                                 <p class="text-center">
                                     <span>Nouveau sur notre plateforme ?</span>
                                     <a href="<?php echo BASE_URL; ?>register">
-                                        <span>Créer un compte</span>
+                                        <span class="text-primary">Créer un compte</span>
                                     </a>
                                 </p>
                             </div>
@@ -61,3 +63,7 @@ require_once './views/include/navBar.php';
         </div>
     </div>
 </main>
+
+<?php
+require_once './views/include/footerdash.php';
+?>

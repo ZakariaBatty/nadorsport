@@ -1,5 +1,5 @@
 <?php
-require_once './views/include/navBar.php';
+require_once './views/include/headdash.php';
 ?>
 <main id="main">
     <div class="container">
@@ -12,7 +12,9 @@ require_once './views/include/navBar.php';
                             <div class="card-body">
                                 <!-- Logo -->
                                 <div class="app-brand justify-content-center">
-
+                                    <a href="<?php echo BASE_URL; ?>" class="app-brand-link gap-2">
+                                        <img style="max-width: 30%;" src="assets/img/LogoNadirSport 1.png" alt="" class="img-fluid">
+                                    </a>
                                 </div>
                                 <!-- /Logo -->
                                 <h4 class="mb-2">L'aventure commence ici 🚀</h4>
@@ -40,7 +42,7 @@ require_once './views/include/navBar.php';
                                             <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
                                             <label class="form-check-label" for="terms-conditions">
                                                 Je suis d'accord pour
-                                                <a href="javascript:void(0);">politique de confidentialité et conditions</a>
+                                                <a href="javascript:void(0); " class=" text-primary">politique de confidentialité et conditions</a>
                                             </label>
                                         </div>
                                     </div>
@@ -50,7 +52,7 @@ require_once './views/include/navBar.php';
                                 <p class="text-center">
                                     <span>Vous avez déjà un compte?</span>
                                     <a href="<?php echo BASE_URL; ?>login">
-                                        <span>Connectez-vous à la place</span>
+                                        <span class="text-primary">Connectez-vous à la place</span>
                                     </a>
                                 </p>
                             </div>
@@ -62,3 +64,6 @@ require_once './views/include/navBar.php';
         </div>
     </div>
 </main>
+<?php
+require_once './views/include/footerdash.php';
+?>

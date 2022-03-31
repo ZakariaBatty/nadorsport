@@ -1,4 +1,5 @@
 <?php
+require_once './views/include/head.php';
 require_once './views/include/header.php';
 ?>
 <main id="main">
@@ -1048,3 +1049,6 @@ require_once './views/include/header.php';
         </div>
     </section><!-- End TERRAIN Section -->
 </main><!-- End #main -->
+<?php
+require_once './views/include/footer.php';
+?>

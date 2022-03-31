@@ -3,7 +3,7 @@
      <div class="container d-flex align-items-center justify-content-between">
 
          <!-- Uncomment below if you prefer to use an image logo -->
-         <a href="/" class="logo"><img src="assets/img/LogoNadirSport .png" alt="" class="img-fluid"></a>
+         <a href="<?php echo BASE_URL; ?>"" class=" logo"><img src="assets/img/LogoNadirSport .png" alt="" class="img-fluid"></a>
 
          <nav id="navbar" class="navbar">
              <ul>
