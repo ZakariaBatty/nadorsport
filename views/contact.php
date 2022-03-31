@@ -1,6 +1,5 @@
 <?php
 require_once './views/include/head.php';
-require_once './views/include/header.php';
 ?>
 <section id="hero" style="height: 66vh;">
     <div class="hero-container mx-auto" style="align-items:center; right:0; left:0; top:200px ;width:auto;">
