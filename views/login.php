@@ -13,7 +13,7 @@ require_once './views/include/headdash.php';
                                 <!-- Logo -->
                                 <div class="app-brand justify-content-center">
                                     <a href="<?php echo BASE_URL; ?>" class="app-brand-link gap-2">
-                                        <img style="max-width: 30%;" src="assets/img/LogoNadirSport 1.png" alt="" class="img-fluid">
+                                        <img style="max-width: 44%;" src="assets/img/LogoNadirSport .png" alt="" class="img-fluid pb-3">
                                     </a>
                                 </div>
                                 <!-- /Logo -->

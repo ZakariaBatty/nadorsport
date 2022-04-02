@@ -1,1 +1,8 @@
-<h4 class="tect-center mt-4 mx-auto">dashbord</h4>
+<?php
+require_once './views/include/headdash.php';
+require_once './views/include/sidbar.php';
+?>
+
+<?php
+require_once './views/include/footerdash.php';
+?>
