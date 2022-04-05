@@ -20,7 +20,7 @@
               <ul class="menu-inner py-1">
                   <!-- Dashboard -->
                   <li class="menu-item active">
-                      <a href="<?php echo BASE_URL; ?>dashbord" class="menu-link">
+                      <a href="<?php echo BASE_URL; ?>c-panel" class="menu-link">
                           <i class="menu-icon tf-icons bx bx-home-circle"></i>
                           <div data-i18n="Analytics">Admin panel</div>
                       </a>
@@ -37,7 +37,7 @@
                       </a>
                       <ul class="menu-sub">
                           <li class="menu-item">
-                              <a href="?Account=true" class="menu-link">
+                              <a href="<?php echo BASE_URL; ?>account" class="menu-link">
                                   <div data-i18n="Account">Account</div>
                               </a>
                           </li>
@@ -63,12 +63,12 @@
                       </a>
                       <ul class="menu-sub">
                           <li class="menu-item">
-                              <a href="?ajouterTrrrain=true" class="menu-link" target="_blank">
+                              <a href="<?php echo BASE_URL; ?>ajouter-terrain" class="menu-link">
                                   <div data-i18n="Basic">Ajouter</div>
                               </a>
                           </li>
                           <li class="menu-item">
-                              <a href="?reservation=true" class="menu-link" target="_blank">
+                              <a href="<?php echo BASE_URL; ?>reservation" class="menu-link">
                                   <div data-i18n="Basic">Réservation</div>
                               </a>
                           </li>
@@ -84,13 +84,8 @@
                       </a>
                       <ul class="menu-sub">
                           <li class="menu-item">
-                              <a href="?clients=true" class="menu-link" target="_blank">
+                              <a href="<?php echo BASE_URL; ?>clients" class="menu-link">
                                   <div data-i18n="Basic">les clients</div>
-                              </a>
-                          </li>
-                          <li class="menu-item">
-                              <a href="<?php echo BASE_URL; ?>#booking_calendar" class="menu-link" target="_blank">
-                                  <div data-i18n="Basic">Ajouter</div>
                               </a>
                           </li>
                       </ul>
@@ -191,19 +186,3 @@
                   </div>
               </nav>
               <!-- star Content-->
-              <?php
-                if (isset($_GET['Account'])) {
-                    include('./views/admin/account.php'); //account
-                } else if (isset($_GET['ajouterTrrrain'])) {
-                    include('./views/admin/ajouter-terrain.php'); //ajouter terrain
-                } else if (isset($_GET['reservation'])) {
-                    include('./views/admin/reservation.php'); //reservation
-                } else if (isset($_GET['clients'])) {
-                    include('./views/admin/clients.php'); //clients
-                } else {
-                    include('./views/admin/index.php'); //home
-                } ?>
-              <!-- end -->
-          </div>
-      </div>
-  </div>
