@@ -1,5 +1,9 @@
 <?php
 require_once './views/include/headdash.php';
+if (isset($_POST['submit'])) :
+    $loginUser = new UsersController();
+    $loginUser->auth();
+endif;
 ?>
 <main id="main">
     <div class="container">
@@ -19,11 +23,12 @@ require_once './views/include/headdash.php';
                                 <!-- /Logo -->
                                 <h4 class="mb-2">Bienvenue à nador sport 👋</h4>
                                 <p class="mb-4">Veuillez vous connecter à votre compte et commencer l'aventure</p>
+                                <?php include('./views/include/alerts.php'); ?>
 
-                                <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                                <form id="formAuthentication" class="mb-3" method="POST">
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email-username" placeholder="Entrer votre Email" autofocus />
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Entrer votre Email" autofocus />
                                     </div>
                                     <div class="mb-3 form-password-toggle">
                                         <div class="d-flex justify-content-between">
@@ -44,7 +49,7 @@ require_once './views/include/headdash.php';
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <button class="btn btn-primary d-grid w-100" type="submit">Se connecter</button>
+                                        <button name="submit" class="btn btn-primary d-grid w-100" type="submit">Se connecter</button>
                                     </div>
                                 </form>
 

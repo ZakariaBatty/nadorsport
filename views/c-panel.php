@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION['logged']) && !$_SESSION['logged'] === true) {
+    header("Location: login");
+}
 require_once './views/include/headdash.php';
 require_once './views/include/sidbar.php';
 ?>

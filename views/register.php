@@ -1,5 +1,9 @@
 <?php
 require_once './views/include/headdash.php';
+if (isset($_POST['submit'])) :
+    $createUser = new UsersController();
+    $createUser->register();
+endif;
 ?>
 <main id="main">
     <div class="container">
@@ -19,15 +23,15 @@ require_once './views/include/headdash.php';
                                 <!-- /Logo -->
                                 <h4 class="mb-2">L'aventure commence ici 🚀</h4>
                                 <p class="mb-4">Veuillez créer votre compte et commencer l'aventure</p>
-
-                                <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                                <?php include('./views/include/alerts.php'); ?>
+                                <form id="formAuthentication" class="mb-3" method="POST">
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Nom d'utilisateur</label>
-                                        <input type="text" class="form-control" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" autofocus />
+                                        <input type="text" class="form-control" id="username" name="name" placeholder="Entrez votre nom d'utilisateur" autofocus />
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email-username" placeholder="Entrer votre Email" autofocus />
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Entrer votre Email" autofocus />
                                     </div>
                                     <div class="mb-3 form-password-toggle">
                                         <label class="form-label" for="password">Mot de passe</label>
@@ -39,14 +43,14 @@ require_once './views/include/headdash.php';
 
                                     <div class="mb-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                                            <input class="form-check-input" required type="checkbox" id="terms-conditions" name="terms" />
                                             <label class="form-check-label" for="terms-conditions">
                                                 Je suis d'accord pour
                                                 <a href="javascript:void(0); " class=" text-primary">politique de confidentialité et conditions</a>
                                             </label>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary d-grid w-100">Sign up</button>
+                                    <button name="submit" class="btn btn-primary d-grid w-100">Sign up</button>
                                 </form>
 
                                 <p class="text-center">
