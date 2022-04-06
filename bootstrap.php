@@ -1,2 +1,2 @@
 <?php
-define('BASE_URL', 'http://localhost/nadorsport/');
+define('BASE_URL', 'https://nadorsport.ma/beta');
