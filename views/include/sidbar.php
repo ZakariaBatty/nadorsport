@@ -1,3 +1,8 @@
+  <?php
+    if (!isset($_SESSION['logged_admin']) && $_SESSION['logged_admin'] !== true) {
+        header("Location: login-admin");
+    }
+    ?>
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -28,27 +33,27 @@
 
                   <!-- Layouts -->
                   <li class="menu-header small text-uppercase">
-                      <span class="menu-header-text">Settings</span>
+                      <span class="menu-header-text">Paramètres</span>
                   </li>
                   <li class="menu-item">
                       <a href="javascript:void(0);" class="menu-link menu-toggle">
-                          <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                          <div data-i18n="Account Settings">Account Settings</div>
+                          <i class="menu-icon tf-icons bx bx-setting"></i>
+                          <div data-i18n="Account Settings">Paramètres</div>
                       </a>
                       <ul class="menu-sub">
                           <li class="menu-item">
                               <a href="<?php echo BASE_URL; ?>account" class="menu-link">
-                                  <div data-i18n="Account">Account</div>
+                                  <div data-i18n="Account">Compte</div>
                               </a>
                           </li>
                           <li class="menu-item">
-                              <a href="?Account=true" class="menu-link">
-                                  <div data-i18n="Notifications">Change password</div>
+                              <a href="<?php echo BASE_URL; ?>change-password" class="menu-link">
+                                  <div data-i18n="Notifications">Changer le mot de passe</div>
                               </a>
                           </li>
                           <li class="menu-item">
-                              <a href="?Account=true" class="menu-link">
-                                  <div data-i18n="Connections">Connections</div>
+                              <a href="<?php echo BASE_URL; ?>ajouter-admin" class="menu-link">
+                                  <div data-i18n="Connections">ajouter admin</div>
                               </a>
                           </li>
                       </ul>
@@ -80,7 +85,7 @@
                   <li class="menu-item">
                       <a href="javascript:void(0);" class="menu-link menu-toggle">
                           <i class="menu-icon tf-icons bx bx-user"></i>
-                          <div data-i18n="Authentications">les client</div>
+                          <div data-i18n="Authentications">les clients</div>
                       </a>
                       <ul class="menu-sub">
                           <li class="menu-item">
@@ -95,7 +100,7 @@
                   </li>
                   <li class="menu-item">
                       <a href="javascript:void(0);" class="menu-link menu-toggle">
-                          <i class="menu-icon tf-icons bx bx-page"></i>
+                          <i class="menu-icon tf-icons bx bx-dock-top"></i>
                           <div data-i18n="Authentications">pages site web</div>
                       </a>
                       <ul class="menu-sub">
@@ -159,22 +164,16 @@
                                       <div class="dropdown-divider"></div>
                                   </li>
                                   <li>
-                                      <a class="dropdown-item" href="#">
+                                      <a class="dropdown-item" href="<?php echo BASE_URL; ?>account">
                                           <i class="bx bx-user me-2"></i>
                                           <span class="align-middle">My Account</span>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a class="dropdown-item" href="#">
-                                          <i class="bx bx-cog me-2"></i>
-                                          <span class="align-middle">Settings</span>
                                       </a>
                                   </li>
                                   <li>
                                       <div class="dropdown-divider"></div>
                                   </li>
                                   <li>
-                                      <a class="dropdown-item" href="auth-login-basic.html">
+                                      <a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">
                                           <i class="bx bx-power-off me-2"></i>
                                           <span class="align-middle">Déconnecte</span>
                                       </a>

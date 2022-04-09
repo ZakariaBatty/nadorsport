@@ -9,7 +9,6 @@ class User
         $stmt->bindParam(':name', $data['name']);
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':password', $data['password']);
-
         if ($stmt->execute()) :
             return 'ok';
         else :

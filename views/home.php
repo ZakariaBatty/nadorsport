@@ -19,7 +19,7 @@ require_once './views/include/header.php';
                     <div class="portfolio-info">
                         <h4>Terrain 1</h4>
                         <p>Terrain 1</p>
-                        <a href="assets/img/portfolio/terrain1 (1).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 1"><i class="bx bx-plus"></i>Réservez</a>
+                        <a href="assets/img/portfolio/terrain1 (1).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Réservez"><i class="bx bx-plus"></i></a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
                 </div>
@@ -29,7 +29,7 @@ require_once './views/include/header.php';
                     <div class="portfolio-info">
                         <h4>Terrain 2</h4>
                         <p>Terrain 2</p>
-                        <a href="assets/img/portfolio/terrain1 (2).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 2"><i class="bx bx-plus"></i>Réservez</a>
+                        <a href="assets/img/portfolio/terrain1 (2).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Réservez"><i class="bx bx-plus"></i></a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
                 </div>
@@ -38,7 +38,7 @@ require_once './views/include/header.php';
                     <div class="portfolio-info">
                         <h4>Terrain 3</h4>
                         <p>Terrain 3</p>
-                        <a href="assets/img/portfolio/terrain1 (3).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="terrain 3 2"><i class="bx bx-plus"></i>Réservez</a>
+                        <a href="assets/img/portfolio/terrain1 (3).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Réservez"><i class="bx bx-plus"></i></a>
                         <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     </div>
                 </div>
