@@ -26,8 +26,16 @@ endif;
                                 <?php include('./views/include/alerts.php'); ?>
                                 <form id="formAuthentication" class="mb-3" method="POST">
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Nom d'utilisateur</label>
-                                        <input type="text" class="form-control" id="username" name="name" placeholder="Entrez votre nom d'utilisateur" autofocus />
+                                        <label for="username" class="form-label">Nom </label>
+                                        <input type="text" class="form-control" id="username" name="firstName" placeholder="Entrez votre Nom" autofocus />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Prénom </label>
+                                        <input type="text" class="form-control" id="username" name="lastName" placeholder="Entrez votre Prénom" autofocus />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Téléphone </label>
+                                        <input type="number" class="form-control" id="username" name="phone" placeholder="Entrez votre Téléphone" autofocus />
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
@@ -50,7 +58,7 @@ endif;
                                             </label>
                                         </div>
                                     </div>
-                                    <button name="submit" class="btn btn-primary d-grid w-100">Sign up</button>
+                                    <button name="submit" class="btn btn-primary d-grid w-100">S'inscrire</button>
                                 </form>
 
                                 <p class="text-center">

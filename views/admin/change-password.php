@@ -1,9 +1,20 @@
 <?php
-require_once './views/include/headdash.php';
-require_once './views/include/sidbar.php';
+if (isset($_POST['chnagePassword'])) :
+    if ($_POST['newPassword'] === $_POST['password']) :
+        $change = new AdminController();
+        $change->Password();
+    // else :
+    //     Session::set('info', 'Le mot de passe est incorrect');
+    //     Redirect::to('change-password');;
+    endif;
+
+endif;
 ?>
 
 <!-- Content -->
+<?php
+require_once './views/include/sidbar.php';
+?>
 
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Paramètres du compte /</span> Compte</h4>
@@ -22,33 +33,36 @@ require_once './views/include/sidbar.php';
                 </li>
             </ul>
             <div class="card mb-4">
-                <h5 class="card-header"></h5>
+                <h5 class="card-header">
+                    <?php include('./views/include/alerts.php'); ?>
+                </h5>
                 <!-- Account -->
                 <div class="card-body">
-                    <form id="formAccountSettings" method="POST" onsubmit="return false">
-                        <div class="row">
+                    <form id="formAccountSettings" method="POST">
+                        <input type="hidden" name="id" value="<?= $_SESSION['admin_info']->id ?>">
+                        <!-- <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="firstName" class="form-label">le mot de passe</label>
-                                <input class="form-control" type="text" name="firstName" placeholder="*******" />
+                                <input class="form-control" type="text" name="password" placeholder="*******" />
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="lastName" class="form-label">nouveau mot de passe</label>
-                                <input class="form-control" type="text" name="lastName" placeholder="********" />
+                                <input class="form-control" type="text" name="newPassword" placeholder="********" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label for="email" class="form-label">Confirmez le mot de passe</label>
-                                <input class="form-control" type="text" id="email" name="email" placeholder="******" />
+                                <input class="form-control" type="text" id="email" name="password" placeholder="******" />
                             </div>
                         </div>
+                        <div class=" mt-2">
+                            <button type="submit" name="chnagePassword" class="btn btn-primary me-2">confirmer</button>
+                        </div>
+                    </form>
                 </div>
-                <div class=" mt-2">
-                    <button type="submit" class="btn btn-primary me-2">confirmer</button>
-                </div>
-                </form>
             </div>
             <!-- /Account -->
         </div>
@@ -56,6 +70,3 @@ require_once './views/include/sidbar.php';
 </div>
 </div>
 <!-- / Content -->
-<?php
-require_once './views/include/footerdash.php';
-?>

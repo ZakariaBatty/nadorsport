@@ -486,7 +486,7 @@ section {
 }
 
 .section-title {
-  text-align: left;
+  text-align: center;
   padding-bottom: 30px;
 }
 .section-title h2 {
@@ -497,7 +497,7 @@ section {
   line-height: 1;
   margin: 0;
   background: #fdeff2;
-  color: #e43c5c;
+  color: #2793f2;
   display: inline-block;
   text-transform: uppercase;
   border-radius: 50px;
@@ -506,10 +506,9 @@ section {
   margin: 15px 0 0 0;
   font-size: 32px;
   font-weight: 700;
-  color: #2793f2;
 }
 .section-title h3 span {
-  color: #e43c5c;
+  color: #2793f2;
 }
 .section-title p {
   margin: 15px auto 0 auto;
@@ -654,7 +653,7 @@ section {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
   color: #fff;
-  background: #e43c5c;
+  background: #2793f2;
 }
 .portfolio #portfolio-flters li:last-child {
   margin-right: 0;

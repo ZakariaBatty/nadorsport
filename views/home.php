@@ -1,47 +1,61 @@
 <?php
+$data = new  TerrainController();
+$terrains = $data->getAllTerrainLimit();
+$datasport = new  SportController();
+$sports = $datasport->getAllSports();
+?>
+<!-- content -->
+<?php
 require_once './views/include/head.php';
 require_once './views/include/header.php';
 ?>
 <main id="main">
 
     <!-- ======= Terrian Section ======= -->
-    <section id="portfolio" class="portfolio bg-light">
+    <section id="portfolio" class="portfolio">
         <div class="container">
 
             <div class="section-title">
-                <h3>TERRAIN</h3>
-                <a href="<?php echo BASE_URL; ?>all-terrien" style="float: right;font-size: 18px; color: #2793f2;">Voir tous les terrains</a>
+                <h2>TERRAIN</h2>
+                <h3>Choisissez votre sport <span> préféré</span></h3>
+                <a href="<?php echo BASE_URL; ?>all-terrien-foot" style="float: right;font-size: 18px; color: #2793f2;">Voir tous les terrains</a>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <?php foreach ($sports as $sports) : ?>
+                            <li data-filter=".<?= $sports['name_sport']; ?>"><?= $sports['name_sport']; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
 
             <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item">
-                    <img src="assets/img/portfolio/terrain1 (1).png" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Terrain 1</h4>
-                        <p>Terrain 1</p>
-                        <a href="assets/img/portfolio/terrain1 (1).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Réservez"><i class="bx bx-plus"></i></a>
-                        <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item">
-                    <img src="assets/img/portfolio/terrain1 (2).png" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Terrain 2</h4>
-                        <p>Terrain 2</p>
-                        <a href="assets/img/portfolio/terrain1 (2).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Réservez"><i class="bx bx-plus"></i></a>
-                        <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item">
-                    <img src="assets/img/portfolio/terrain1 (3).png" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Terrain 3</h4>
-                        <p>Terrain 3</p>
-                        <a href="assets/img/portfolio/terrain1 (3).png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Réservez"><i class="bx bx-plus"></i></a>
-                        <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
-                    </div>
-                </div>
+                <?php if (count($terrains) > 0) : ?>
+                    <?php foreach ($terrains as $terrain) : ?>
+                        <div class="col-lg-4 col-md-6 portfolio-item <?= $terrain['name_sport']; ?>">
+                            <img src="assets/img/portfolio/terrain1 (1).png" class="img-fluid" alt="">
+                            <div class="portfolio-info" style="    display: flex; justify-content: space-between;">
+                                <div>
+                                    <h4><?php echo $terrain['terrain']; ?> </h4>
+                                    <p><?php echo $terrain['localisation']; ?></p>
+                                </div>
+                                <form method="post" class="mr-1" action="reservation-terrain">
+                                    <input type="hidden" name="id" value="<?php echo $terrain['id_terrain']; ?>">
+                                    <button class="btn btn-primary"><i class="bx bx-plus"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <div class="col-lg-4 col-md-6 portfolio-item">
+                            <div class="alert alert-info">aucun terrians trouvé</div>
+                        </div>
+                    </tr>
+                <?php endif; ?>
             </div>
 
         </div>
@@ -49,12 +63,13 @@ require_once './views/include/header.php';
     <!-- End Terrian Section -->
 
     <!-- REservation  -->
-    <section class="py-2 bg-light" id="booking_calendar">
+    <section class="py-2" id="booking_calendar">
         <div class="container">
             <div class="section-title">
-                <h3 class="mb-5">
-                    RESERVATION FACILE
-                </h3>
+                <h2>
+                    RESERVATION
+                </h2>
+                <h3>Réservez maintenant et obtenez votre <span>place</span></h3>
             </div>
             <div class="section-title">
                 <div class="row">
@@ -125,21 +140,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-09-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-09-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-09-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -177,21 +192,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-10-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-10-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-10-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -229,21 +244,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-11-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-11-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-11-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -281,21 +296,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-12-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-12-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-12-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -333,21 +348,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-13-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-13-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-13-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -385,21 +400,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-14-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-14-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-14-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -437,21 +452,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-15-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-15-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-15-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -489,21 +504,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-16-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-16-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-16-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -541,21 +556,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-17-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-17-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-17-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -593,21 +608,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-18-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-18-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-18-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -645,21 +660,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-19-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-19-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-19-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -697,21 +712,21 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-20-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-20-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-danger">
+                                                <a href="#" class="bg-danger">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-10-20-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-warning">
+                                                <a href="#" class="bg-warning">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -749,14 +764,14 @@ require_once './views/include/header.php';
 
 
                                             <td id="2020-06-08-21-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
 
 
                                             <td id="2020-06-09-21-00" class="cell day_column">
-                                                <a href="#" class="bg-reduced-success">
+                                                <a href="#" class="bg-success">
                                                     &nbsp;
                                                 </a>
                                             </td>
@@ -1018,7 +1033,8 @@ require_once './views/include/header.php';
         <div class="container">
 
             <div class="section-title">
-                <h3>SERVICE</h3>
+                <h2>SERVICE</h2>
+                <h3>Nous offrons des <span>Services</span>impressionnants</h3>
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">

@@ -4,11 +4,14 @@ class User
     //create user
     static public function createUser($data)
     {
-        $stmt = DB::connect()->prepare('INSERT INTO clients (name,email,password)
-            VALUES(:name,:email,:password)');
-        $stmt->bindParam(':name', $data['name']);
+        $stmt = DB::connect()->prepare('INSERT INTO clients (firstName,lastName,phone,email,password)
+            VALUES(:firstName,:lastName,:phone,:email,:password)');
+        $stmt->bindParam(':lastName', $data['lastName']);
+        $stmt->bindParam(':firstName', $data['firstName']);
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':password', $data['password']);
+        $stmt->bindParam(':phone', $data['phone']);
+
         if ($stmt->execute()) :
             return 'ok';
         else :

@@ -1,8 +1,3 @@
-  <?php
-    if (!isset($_SESSION['logged_admin']) && $_SESSION['logged_admin'] !== true) {
-        header("Location: login-admin");
-    }
-    ?>
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -37,7 +32,7 @@
                   </li>
                   <li class="menu-item">
                       <a href="javascript:void(0);" class="menu-link menu-toggle">
-                          <i class="menu-icon tf-icons bx bx-setting"></i>
+                          <i class="menu-icon tf-icons bx bx-cog"></i>
                           <div data-i18n="Account Settings">Paramètres</div>
                       </a>
                       <ul class="menu-sub">
@@ -49,11 +44,6 @@
                           <li class="menu-item">
                               <a href="<?php echo BASE_URL; ?>change-password" class="menu-link">
                                   <div data-i18n="Notifications">Changer le mot de passe</div>
-                              </a>
-                          </li>
-                          <li class="menu-item">
-                              <a href="<?php echo BASE_URL; ?>ajouter-admin" class="menu-link">
-                                  <div data-i18n="Connections">ajouter admin</div>
                               </a>
                           </li>
                       </ul>
@@ -155,7 +145,7 @@
                                               </div>
                                               <div class="flex-grow-1">
                                                   <span class="fw-semibold d-block">nador sport</span>
-                                                  <small class="text-muted">Admin</small>
+                                                  <small class="text-muted"><?= $_SESSION['admin_info']->email ?></small>
                                               </div>
                                           </div>
                                       </a>

@@ -1,10 +1,28 @@
 <?php
 class TerrainController
 {
-    //function for recover all terrain  
-    public function getAllTerrain()
+    //function for recover all terrain  byid sport
+    public function getAllTerrain($id)
     {
-        $terrain = Terrains::getAll();
+        $terrain = Terrains::getAll($id);
+        return $terrain;
+    }
+    //function for recover all terrain  limit by id sport
+    public function getAllTerrainLimit()
+    {
+        $terrain = Terrains::getAlllimit();
+        return $terrain;
+    }
+    // function for  select one terrain
+    public function getOneTerrain($id)
+    {
+        $terrain = Terrains::getTerrain($id);
+        return $terrain;
+    }
+    // function for  select terrain bay sport
+    public function getAllTerrainBySport($id)
+    {
+        $terrain = Terrains::getTerrainBySport($id);
         return $terrain;
     }
 
@@ -45,28 +63,24 @@ class TerrainController
                 'image' => $_FILES['image']['name'],
                 'terrain' => $_POST['terrain'],
                 'localisation' => $_POST['localisation'],
-                'prix' => $_POST['prix']
+                'prix' => $_POST['prix'],
+                'sport_id' => $_POST['sport_id']
             );
             $result = Terrains::add($data);
             if ($result === 'ok') {
-                // Session::set('success', 'Terrain Ajouté');
-                // Redirect::to('ajouter-terrain');
+                Session::set('success', 'Terrain Ajouté');
+                Redirect::to('ajouter-terrain');
             } else {
                 Session::set('info', 'Veuillez réessayer*');
                 Redirect::to('ajouter-terrain');
             }
         endif;
     }
-    // function for  select one terrain
-    public function getOneTerrain($id)
-    {
-        $patient = Terrains::getTerrain($id);
-        return $patient;
-    }
+
     // function for update Terrain
     public function updateTerrain()
     {
-        if (isset($_POST['submit'])) :
+        if (isset($_POST['Modifier'])) :
             $dir = "assets/img/portfolio/";
             $target = $dir . basename($_FILES['image']['name']);
             $uploadOk = 1;
@@ -77,11 +91,7 @@ class TerrainController
             if ($check !== false) {
 
                 $uploadOk = 1;
-            } else {
-
-                $uploadOk = 0;
             }
-
             // Allow certain file formats
             if (
                 $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -98,12 +108,15 @@ class TerrainController
                 }
             }
             $data = array(
-                'id' => $_POST['id'],
+                'terrain_id' => $_POST['terrain_id'],
                 'image' => $_FILES['image']['name'],
                 'terrain' => $_POST['terrain'],
                 'localisation' => $_POST['localisation'],
+                'prix' => $_POST['prix'],
+                'sport_id' => $_POST['sport_id']
             );
             $result = Terrains::update($data);
+            ($result);
             if ($result === 'ok') {
                 Session::set('success', 'Terrain Modifié');
                 Redirect::to('ajouter-terrain');
@@ -116,12 +129,12 @@ class TerrainController
     // function for delete terrain
     public function deleteTerrain()
     {
-        if (isset($_POST['delete'])) :
-            $data['id'] = $_POST['delete'];
+        if (isset($_POST['id_terrain'])) :
+            $data['id_terrain'] = $_POST['id_terrain'];
             $result = Terrains::delete($data);
             if ($result === 'ok') {
                 Session::set('error', 'Terrain suprimé');
-                Redirect::to('patient');
+                Redirect::to('ajouter-terrain');
             } else {
                 Session::set('info', 'Veuillez réessayer*');
                 Redirect::to('ajouter-terrain');

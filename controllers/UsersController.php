@@ -15,7 +15,7 @@ class UsersController
                 $_SESSION['user_id'] = $result->user_id;
                 header("Location: dashbord");
             else :
-                Session::set('error', 'Pseudo ou mot de passe est incorrect');
+                Session::set('error', 'Email ou mot de passe est incorrect');
                 Redirect::to('login');
             endif;
 
@@ -30,7 +30,9 @@ class UsersController
             ];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
             $data = array(
-                'name' => $_POST['name'],
+                'firstName' => $_POST['firstName'],
+                'lastName' => $_POST['lastName'],
+                'phone' => $_POST['phone'],
                 'email' => $_POST['email'],
                 'password' => $password,
 

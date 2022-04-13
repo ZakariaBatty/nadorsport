@@ -1,11 +1,15 @@
 <?php
-require_once './views/include/headdash.php';
-require_once './views/include/sidbar.php';
 $data = new ClientController();
 $clients = $data->getAllClients();
+if (isset($_POST['update-status'])) :
+    $status = new ClientController();
+    $status->desactive();
+endif;
 ?>
 
-
+<?php
+require_once './views/include/sidbar.php';
+?>
 <!-- Content wrapper -->
 <div class="content-wrapper">
     <!-- Content -->
@@ -15,12 +19,14 @@ $clients = $data->getAllClients();
         <!-- Hoverable Table rows -->
         <div class="card">
             <h5 class="card-header">Informations clients</h5>
+            <?php include('./views/include/alerts.php'); ?>
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>Email</th>
-                            <th>Client</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
                             <th>Phone</th>
                             <th>Status</th>
                             <th>Actions</th>
@@ -30,9 +36,10 @@ $clients = $data->getAllClients();
                         <?php foreach ($clients as $client) : ?>
                             <tr>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $client['email']; ?></strong></td>
-                                <td><?php echo $client['name']; ?></td>
-                                <td><?php echo $client['phone']; ?></td>
-                                <td><?php echo $client['status'] ?
+                                <td><?= $client['firstName']; ?></td>
+                                <td><?= $client['lastName']; ?></td>
+                                <td><?= $client['phone']; ?></td>
+                                <td><?= $client['status'] ?
                                         '<span class="badge bg-label-success me-1">Active</span>' :
                                         '<span class="badge bg-label-danger me-1">Désactive</span>'
                                     ?>
@@ -43,13 +50,15 @@ $clients = $data->getAllClients();
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <form method="post" class="mr-1" action="update">
+                                            <form method="post" class="mr-1">
+                                                <input type="hidden" name="status" value="1">
                                                 <input type="hidden" name="id" value="<?php echo $client['user_id']; ?>">
-                                                <button class="dropdown-item"><i class="bx bx-edit-alt me-1"></i> Edit</button>
+                                                <button type="submit" name="update-status" class="dropdown-item"><span class="badge bg-label-success me-1">Active</span></button>
                                             </form>
-                                            <form method="post" class="mr-1" action="delete">
+                                            <form method="post" class="mr-1">
+                                                <input type="hidden" name="status" value="0">
                                                 <input type="hidden" name="id" value="<?php echo $client['user_id']; ?>">
-                                                <button class="dropdown-item"><i class="bx bx-trash me-1"></i> Delete</button>
+                                                <button type="submit" name="update-status" class="dropdown-item"><span class="badge bg-label-danger me-1">Désactive</span></button>
                                             </form>
                                         </div>
                                     </div>
@@ -63,8 +72,3 @@ $clients = $data->getAllClients();
         <!--/ Hoverable Table rows -->
     </div>
 </div>
-
-
-<?php
-require_once './views/include/footerdash.php';
-?>

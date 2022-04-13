@@ -5,22 +5,29 @@ class ClientController
     // function for recover clients
     public function getAllClients()
     {
-        $terrain = Client::getAll();
-        return $terrain;
+        $Client = Client::getAll();
+        return $Client;
+    }
+
+    // function for recover clients limit 10
+    public function getLimitClients()
+    {
+        $Client = Client::getLimit();
+        return $Client;
     }
     // function for recover One client
-    public function getOneTerrain()
+    public function getOneClient()
     {
         if (isset($_POST['id'])) {
             $data = array(
                 'id' => $_POST['id']
             );
-            $terrain = Client::getClient($data);
-            return $terrain;
+            $Client = Client::getClient($data);
+            return $Client;
         }
     }
     // function for update client
-    public function updateTerrain()
+    public function updateClient()
     {
         if (isset($_POST['submit'])) :
             $data = array(
@@ -31,7 +38,7 @@ class ClientController
             );
             $result = Client::update($data);
             if ($result === 'ok') {
-                Session::set('success', 'Employé Modifié');
+                Session::set('success', 'Client Modifié');
                 Redirect::to('home');
             } else {
                 echo $result;
@@ -48,8 +55,8 @@ class ClientController
             );
             $result = Client::desaClient($data);
             if ($result === 'ok') {
-                Session::set('success', 'Patient suprimé');
-                Redirect::to('home');
+                Session::set('success', 'Le statut du client a bien été modifié');
+                Redirect::to('clients');
             } else {
                 echo $result;
             }

@@ -9,15 +9,26 @@ class Client
         return $stmt->fetchAll();
         $stmt = null;
     }
+
+    //function for recover all clients limit 10
+    static public function getLimit()
+    {
+        $stmt = DB::connect()->prepare('SELECT * FROM clients ORDER BY user_id  DESC LIMIT 10');
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
     //function for update client
     static public function update($data)
     {
         $stmt = DB::connect()->prepare('UPDATE clients SEt 
-        name = :name ,email = :email ,phone = :phone  WHERE id= :id');
+        firstName = :firstName,;lastName = :lastName,email = :email ,phone = :phone, status = :status,  WHERE id= :id');
         $stmt->bindParam(':id', $data['id']);
-        $stmt->bindParam(':name', $data['name']);
+        $stmt->bindParam(':firstName', $data['firstName']);
+        $stmt->bindParam(':lastName', $data['lastName']);
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':phone', $data['phone']);
+        $stmt->bindParam(':status', $data['status']);
 
         if ($stmt->execute()) :
             return 'ok';
@@ -45,7 +56,7 @@ class Client
     static public function desaClient($data)
     {
         $stmt = DB::connect()->prepare('UPDATE clients SEt 
-        status = :status   WHERE id= :id');
+        status = :status   WHERE user_id= :id');
         $stmt->bindParam(':id', $data['id']);
         $stmt->bindParam(':status', $data['status']);
 
