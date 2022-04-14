@@ -1034,7 +1034,7 @@ require_once './views/include/header.php';
 
             <div class="section-title">
                 <h2>SERVICE</h2>
-                <h3>Nous offrons des <span>Services</span>impressionnants</h3>
+                <h3>Nous offrons des <span>Services</span> impressionnants</h3>
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">
