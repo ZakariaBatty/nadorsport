@@ -2,10 +2,10 @@
 class Terrains
 {
     // function for recover all Terrain,sport_id
-    static public function getAll($id)
+    static public function getAll()
     {
         try {
-            $stmt = DB::connect()->prepare('SELECT * FROM terrains INNER JOIN sports ON terrains.sport_id = sports.sport_id WHERE sports.sport_id = ' . $id);
+            $stmt = DB::connect()->prepare('SELECT * FROM terrains INNER JOIN sports ON terrains.sport_id = sports.sport_id');
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (PDOException $ex) {
@@ -47,11 +47,11 @@ class Terrains
     static public function getTerrain($id)
     {
         try {
-            $query = 'SELECT * FROM terrains INNER JOIN sports ON terrains.sport_id = sports.sport_id WHERE id_terrain = :id';
+            $query = 'SELECT * FROM terrains INNER JOIN sports ON terrains.sport_id = sports.sport_id WHERE terrain_id = :id';
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id" => $id));
-            $ordonnance = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $ordonnance;
+            $terrain = $stmt->fetch(PDO::FETCH_OBJ);
+            return $terrain;
         } catch (PDOException $ex) {
             echo 'erreur' . $ex->getMessage();
         }

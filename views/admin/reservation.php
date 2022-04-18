@@ -37,7 +37,7 @@ require_once './views/include/sidbar.php';
                                     <td> <?= $reservation['terrain']; ?></td>
                                     <td> <?= $reservation['name_sport']; ?></td>
                                     <td> <?= $reservation['date_']; ?></td>
-                                    <td> <?= $reservation['hour_start']; ?> | <?= $reservation['hour_start']; ?></td>
+                                    <td> <?= $reservation['hour_start']; ?> | <?= $reservation['hour_fin']; ?></td>
                                     <td><span class="badge bg-label-success me-1"><?= $reservation['status_reservation']; ?></span></td>
                                     <td>
                                         <div class="dropdown">

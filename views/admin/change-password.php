@@ -28,9 +28,6 @@ require_once './views/include/sidbar.php';
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>change-password"><i class="bx bx-bell me-1"></i> Changer le mot de passe</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>ajouter-admin"><i class="bx bx-link-alt me-1"></i> ajouter admin</a>
-                </li>
             </ul>
             <div class="card mb-4">
                 <h5 class="card-header">

@@ -1,0 +1,67 @@
+        <?php
+        $data = new ReservationController();
+        $reservations = $data->getAllReservation();
+        ?>
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs pt-4">
+            <div class="container">
+                <ol>
+                    <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
+                    <li>toutes les réservations </li>
+                </ol>
+                <h2>toutes les infos</h2>
+            </div>
+        </section><!-- End Breadcrumbs -->
+        <main id="main">
+            <section class="contact">
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <!-- Content -->
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <!-- Hoverable Table rows -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title pt-2 pb-2">Réservations</h5>
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Client</th>
+                                                <th>Phone</th>
+                                                <th>terrain</th>
+                                                <th>sport</th>
+                                                <th>date</th>
+                                                <th>heure</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-border-bottom-0">
+                                            <?php if (count($reservations) > 0) : ?>
+                                                <?php foreach ($reservations as $reservation) : ?>
+                                                    <tr>
+                                                        <td><?= $reservation['firstName']; ?> <?= $reservation['lastName']; ?></td>
+                                                        <td> <?= $reservation['phone']; ?></td>
+                                                        <td> <?= $reservation['terrain']; ?></td>
+                                                        <td> <?= $reservation['name_sport']; ?></td>
+                                                        <td> <?= $reservation['date_']; ?></td>
+                                                        <td> <?= $reservation['hour_start']; ?> | <?= $reservation['hour_fin']; ?></td>
+                                                        <td><span class="badge bg-success me-1"><?= $reservation['status_reservation']; ?></span></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            <?php else : ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="alert alert-info">aucun réservation trouvé</div>
+                                                    </td>
+                                                </tr>
+                                            <?php endif; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Hoverable Table rows -->
+                    </div>
+                </div>
+            </section>
+        </main>

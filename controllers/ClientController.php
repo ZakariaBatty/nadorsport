@@ -18,13 +18,8 @@ class ClientController
     // function for recover One client
     public function getOneClient()
     {
-        if (isset($_POST['id'])) {
-            $data = array(
-                'id' => $_POST['id']
-            );
-            $Client = Client::getClient($data);
-            return $Client;
-        }
+        $Client = Client::getClient($_SESSION['user_id']);
+        return $Client;
     }
     // function for update client
     public function updateClient()
@@ -32,31 +27,33 @@ class ClientController
         if (isset($_POST['submit'])) :
             $data = array(
                 'id' => $_POST['id'],
-                'name' => $_POST['name'],
+                'firstName' => $_POST['firstName'],
+                'lastName' => $_POST['lastName'],
                 'email' => $_POST['email'],
                 'phone' => $_POST['phone'],
             );
             $result = Client::update($data);
             if ($result === 'ok') {
-                Session::set('success', 'Client Modifié');
-                Redirect::to('home');
+                Session::set('success', 'Compte Modifié');
+                Redirect::to('dashbord');
             } else {
-                echo $result;
+                Session::set('error', 'Veuillez réessayer*');
+                Redirect::to('dashbord');
             }
         endif;
     }
     // function for delete client
     public function desactive()
     {
-        if (isset($_POST['id'])) :
+        if (isset($_POST['accountDesactivation'])) :
             $data = array(
                 'id' => $_POST['id'],
                 'status' => $_POST['status'],
             );
             $result = Client::desaClient($data);
             if ($result === 'ok') {
-                Session::set('success', 'Le statut du client a bien été modifié');
-                Redirect::to('clients');
+                Session::set('success', 'compte a bien été desactive');
+                Redirect::to('dashbord');
             } else {
                 echo $result;
             }

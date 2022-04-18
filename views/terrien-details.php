@@ -1,73 +1,81 @@
 <?php
+if (isset($_POST['id'])) :
+    $data = new TerrainController();
+    $terrain = $data->getOneTerrain($_POST['id']);
+else :
+    Redirect::to('home');
+endif;
+
 if (isset($_POST['check'])) :
     $check = new ReservationController();
     $check->checkReservation();
 endif;
-$data = new  TerrainController();
-$terrains = $data->getAllTerrainLimit();
-$datasport = new  SportController();
-$sports = $datasport->getAllSports();
 ?>
 <!-- content -->
 <?php
 require_once './views/include/head.php';
-require_once './views/include/header.php';
+require_once './views/include/navBar.php';
 ?>
+
 <main id="main">
 
-    <!-- ======= Terrian Section ======= -->
-    <section id="portfolio" class="portfolio">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs pt-4">
         <div class="container">
 
-            <div class="section-title">
-                <h2>TERRAIN</h2>
-                <h3>Choisissez votre sport <span> préféré</span></h3>
-                <a href="<?php echo BASE_URL; ?>all-terrien-foot" style="float: right;font-size: 18px; color: #2793f2;">Voir tous les terrains</a>
-            </div>
+            <ol>
+                <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
+                <li>Détails du terrain </li>
+            </ol>
+            <h2>Détails du terrain</h2>
 
-            <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <?php foreach ($sports as $sports) : ?>
-                            <li data-filter=".<?= $sports['name_sport']; ?>"><?= $sports['name_sport']; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
+        </div>
+    </section><!-- End Breadcrumbs -->
 
-            <div class="row portfolio-container">
-                <?php if (count($terrains) > 0) : ?>
-                    <?php foreach ($terrains as $terrain) : ?>
-                        <div class="col-lg-4 col-md-6 portfolio-item <?= $terrain['name_sport']; ?>">
-                            <img src="assets/img/portfolio/terrain1 (1).png" class="img-fluid" alt="">
-                            <div class="portfolio-info" style="    display: flex; justify-content: space-between;">
-                                <div>
-                                    <h4><?php echo $terrain['terrain']; ?> </h4>
-                                    <p><?php echo $terrain['localisation']; ?></p>
-                                </div>
-                                <form method="post" class="mr-1" action="terrien-details">
-                                    <input type="hidden" name="id" value="<?php echo $terrain['terrain_id']; ?>">
-                                    <button class="btn btn-primary"><i class="bx bx-plus"></i></button>
-                                </form>
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-8">
+                    <div class="portfolio-details-slider swiper">
+                        <div class="swiper-wrapper align-items-center">
+
+                            <div class="swiper-slide">
+                                <img src="assets/img/portfolio/<?php echo $terrain->image; ?>" alt="img-terrain">
                             </div>
+
                         </div>
-                    <?php endforeach; ?>
-                <?php else : ?>
-                    <tr>
-                        <div class="col-lg-4 col-md-6 portfolio-item">
-                            <div class="alert alert-info">aucun terrians trouvé</div>
-                        </div>
-                    </tr>
-                <?php endif; ?>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="portfolio-info">
+                        <h3>Project information</h3>
+                        <ul>
+                            <li><strong>Terrain</strong>: <?php echo $terrain->terrain; ?></li>
+                            <li><strong>localisation</strong>: <?php echo $terrain->localisation; ?></li>
+                            <li><strong>Prix</strong>: <?php echo $terrain->prix; ?></li>
+                            <li><strong>sport</strong>: <a href="#"><?php echo $terrain->name_sport; ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-description">
+                        <h2>This is an example of portfolio detail</h2>
+                        <p>
+                            Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                        </p>
+                    </div>
+                </div>
+
             </div>
 
         </div>
-    </section>
-    <!-- End Terrian Section -->
+    </section><!-- End Portfolio Details Section -->
 
     <!-- REservation  -->
-    <section class="bg-light" id="portfolio">
+    <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-title">
                 <h2>
@@ -839,18 +847,17 @@ require_once './views/include/header.php';
                             <div class="card-header bg-primary " style="color: white"><b>Réservation en ligne</b></div>
                             <form method="post">
                                 <div class="card-body" style="text-align: left;">
-                                    <input type="hidden" name="terrain_id" value="7">
-                                    <input type="hidden" name="sport_id" value="2">
-                                    <input type="hidden" name="status_reservation" value="confirmé">
+                                    <input type="hidden" name="terrain_id" value="<?= $terrain->terrain_id ?>">
+                                    <input type="hidden" name="terrain_id" value="<?= $terrain->sport_id ?>">
                                     <div class="form-group">
                                         <label for="field_rental_booking_time_picker_date" class="required">Date</label>
-                                        <input type="date" name="date_" required="required" class="form-control" value="2022-06-13">
+                                        <input type="date" id="field_rental_booking_time_picker_date" name="date_" required="required" class="form-control" value="2022-06-13">
                                     </div>
 
                                     <div class="row">
                                         <div class="col">
                                             <label class="required" for="field_rental_booking_time_picker_start">De</label>
-                                            <select name="hour_start" class="form-control">
+                                            <select id="field_rental_booking_time_picker_start" name="hour_start" class="form-control">
                                                 <option value="00:00">00:00</option>
                                                 <option value="00:30">00:30</option>
                                                 <option value="01:00">01:00</option>
@@ -903,7 +910,7 @@ require_once './views/include/header.php';
                                         </div>
                                         <div class="col">
                                             <label class="required" for="field_rental_booking_time_picker_end">Jusque</label>
-                                            <select name="hour_fin" class="form-control">
+                                            <select id="field_rental_booking_time_picker_end" name="hour_fin" class="form-control">
                                                 <option value="00:00">00:00</option>
                                                 <option value="00:30">00:30</option>
                                                 <option value="01:00">01:00</option>
@@ -1033,42 +1040,9 @@ require_once './views/include/header.php';
                 </div>
             </div>
     </section>
-    <section id="services" class="services">
-        <div class="container">
 
-            <div class="section-title">
-                <h2>SERVICE</h2>
-                <h3>Nous offrons des <span>Services</span> impressionnants</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-calendar-check"></i></div>
-                        <h4 class="title"><a href="">Réservation en ligne</a></h4>
-                        <p class="description">Vos membres réservent 24h/24 7j/7 en ligne en toute autonomie.</p>
-                    </div>
-                </div>
+</main>
 
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-coin"></i></div>
-                        <h4 class="title"><a href="">Paiement en ligne</a></h4>
-                        <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore dicta</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 card-services">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-calendar-check"></i></div>
-                        <h4 class="title"><a href="">Disponibilité en temps réel</a></h4>
-                        <p class="description">Les sportifs croisent facilement leur agenda avec les disponibilités du centre pour organiser leurs prochaines sessions. </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section><!-- End TERRAIN Section -->
-</main><!-- End #main -->
 <?php
 require_once './views/include/footer.php';
 ?>

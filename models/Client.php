@@ -22,13 +22,12 @@ class Client
     static public function update($data)
     {
         $stmt = DB::connect()->prepare('UPDATE clients SEt 
-        firstName = :firstName,;lastName = :lastName,email = :email ,phone = :phone, status = :status,  WHERE id= :id');
+        firstName = :firstName, lastName = :lastName,email = :email ,phone = :phone  WHERE user_id= :id');
         $stmt->bindParam(':id', $data['id']);
         $stmt->bindParam(':firstName', $data['firstName']);
         $stmt->bindParam(':lastName', $data['lastName']);
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':phone', $data['phone']);
-        $stmt->bindParam(':status', $data['status']);
 
         if ($stmt->execute()) :
             return 'ok';
@@ -38,12 +37,11 @@ class Client
         $stmt = null;
     }
     //function for recover one client 
-    static public function getClient($data)
+    static public function getClient($id)
     {
-        $id = $data['id'];
         try {
 
-            $query = 'SELECT * FROM clients WHERE id=:id';
+            $query = 'SELECT * FROM clients WHERE user_id=:id';
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id" => $id));
             $employe = $stmt->fetch(PDO::FETCH_OBJ);

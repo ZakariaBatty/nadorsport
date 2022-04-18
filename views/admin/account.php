@@ -4,7 +4,6 @@ if (isset($_POST['updated-admin'])) :
     $change->updateAdmin();
 endif;
 if (isset($_POST['accountDesactivation'])) :
-    print_r($_POST['status']);
     $change = new AdminController();
     $change->desactive();
 endif;

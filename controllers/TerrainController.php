@@ -2,9 +2,9 @@
 class TerrainController
 {
     //function for recover all terrain  byid sport
-    public function getAllTerrain($id)
+    public function getAllTerrain()
     {
-        $terrain = Terrains::getAll($id);
+        $terrain = Terrains::getAll();
         return $terrain;
     }
     //function for recover all terrain  limit by id sport
