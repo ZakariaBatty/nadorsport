@@ -5,6 +5,15 @@ if (isset($_POST['submit'])) :
     $createUser->register();
 endif;
 ?>
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs pt-5">
+    <div class="container">
+        <ol>
+            <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
+            <li>S'inscrire </li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
 <main id="main">
     <div class="container">
         <div class="row mb-4" style="margin-top: 6rem;">

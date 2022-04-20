@@ -1,8 +1,13 @@
 <?php
-if (isset($_POST['submit'])) :
+if (!isset($_SESSION['reservation'])) {
+    Redirect::to('all-terrien');
+}
+if (isset($_POST['checkout'])) :
     $data = new ReservationController();
     $reservation = $data->addReservation();
 endif;
+$reserv = new ReservationController();
+$checkout = $reserv->reservationChockout();
 ?>
 <?php
 require_once './views/include/head.php';
@@ -10,9 +15,8 @@ require_once './views/include/navBar.php';
 ?>
 <main id="main">
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs pt-4">
+    <section id="breadcrumbs" class="breadcrumbs pt-5">
         <div class="container">
-            <?php print_r($_SESSION['reservation']); ?>
             <ol>
                 <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
                 <li>Checkout </li>
@@ -20,69 +24,49 @@ require_once './views/include/navBar.php';
             <h2>Page payments</h2>
         </div>
     </section><!-- End Breadcrumbs -->
-    <div class="container d-flex justify-content-center mt-5 mb-5">
-        <div class="row g-3">
-            <?php require_once './views/include/alerts.php'; ?>
-            <form method="post">
-                <button type="submit" name="submit" class="btn btn-primary btn-block free-button">reservation</button>
-            </form>
-
-            <div class="col-md-6"> <span>Payment Method</span>
-                <div class="card">
-                    <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header p-0" id="headingTwo">
-                                <h2 class="mb-0"> <button class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <div class="d-flex align-items-center justify-content-between"> <span>Paypal</span> <img src="https://i.imgur.com/7kQEsHU.png" width="30"> </div>
-                                    </button> </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="card-body"> <input type="text" class="form-control" placeholder="Paypal email"> </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header p-0">
-                                <h2 class="mb-0"> <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <div class="d-flex align-items-center justify-content-between"> <span>Credit card</span>
-                                            <div class="icons"> <img src="https://i.imgur.com/2ISgYja.png" width="30"> <img src="https://i.imgur.com/W1vtnOV.png" width="30"> <img src="https://i.imgur.com/35tC99g.png" width="30"> <img src="https://i.imgur.com/2ISgYja.png" width="30"> </div>
-                                        </div>
-                                    </button> </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <div class="card-body payment-card-body"> <span class="font-weight-normal card-text">Card Number</span>
-                                    <div class="input"> <i class="fa fa-credit-card"></i> <input type="text" class="form-control" placeholder="0000 0000 0000 0000"> </div>
-                                    <div class="row mt-3 mb-3">
-                                        <div class="col-md-6"> <span class="font-weight-normal card-text">Expiry Date</span>
-                                            <div class="input"> <i class="fa fa-calendar"></i> <input type="text" class="form-control" placeholder="MM/YY"> </div>
-                                        </div>
-                                        <div class="col-md-6"> <span class="font-weight-normal card-text">CVC/CVV</span>
-                                            <div class="input"> <i class="fa fa-lock"></i> <input type="text" class="form-control" placeholder="000"> </div>
-                                        </div>
-                                    </div> <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container mt-5 p-3 rounded cart">
+        <div class="row no-gutters">
+            <div class="col-md-8">
+                <div class="product-details mr-2">
+                    <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue payments</span></div>
+                    <hr>
+                    <h6 class="mb-0">Panier</h6>
+                    <div class="d-flex justify-content-between"><span>Vous avez deux façons de payer</span>
                     </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row"><img class="rounded m-2" src="assets/img/portfolio/<?= $checkout->image ?>" width="40">
+                            <div class="ml-2"><span class="font-weight-bold d-block"><?= $checkout->name_sport ?> <?= $checkout->terrain ?></span><span class="spec"><?= $_SESSION['reservation']['date_'] ?>, <?= $_SESSION['reservation']['hour_start'] ?> || <?= $_SESSION['reservation']['hour_fin'] ?></span></div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center"><span class="d-block"></span><span class="d-block ml-5 font-weight-bold"><?= $checkout->prix ?>dh/ 1h</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                    </div>
+                    <form method="post">
+                        <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
+                        <input type="hidden" name="terrain_id" value="<?= $checkout->terrain_id ?>">
+                        <input type="hidden" name="sport_id" value="<?= $checkout->sport_id ?>">
+                        <input type="hidden" name="date_" value="<?= $_SESSION['reservation']['date_'] ?>">
+                        <input type="hidden" name="hour_start" value="<?= $_SESSION['reservation']['hour_start'] ?>">
+                        <input type="hidden" name="hour_fin" value="<?= $_SESSION['reservation']['hour_fin'] ?>">
+                        <input type="hidden" name="status_reservation" value="confirmé">
+                        <button class="btn btn-primary mx-auto mt-4" name="checkout" type="submit">payment</button>
+                    </form>
                 </div>
             </div>
-            <div class="col-md-6"> <span>Summary</span>
-                <div class="card">
-                    <div class="d-flex justify-content-between p-3">
-                        <div class="d-flex flex-column"> <span>Pro(Billed Monthly) <i class="fa fa-caret-down"></i></span> <a href="#" class="billing">Save 20% with annual billing</a> </div>
-                        <div class="mt-1"> <sup class="super-price">$9.99</sup> <span class="super-month">/Month</span> </div>
+            <div class="col-md-4">
+                <div class="payment-info">
+                    <div class="d-flex justify-content-between align-items-center"><span>Card details</span><img class="rounded" src="https://i.imgur.com/WU501C8.jpg" width="30"></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+                    <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
+                    <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
+                    <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
+                    <div><label class="credit-card-label">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
+                    <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
+                    <div class="row">
+                        <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
+                        <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
                     </div>
-                    <hr class="mt-0 line">
-                    <div class="p-3">
-                        <div class="d-flex justify-content-between mb-2"> <span>Refferal Bonouses</span> <span>-$2.00</span> </div>
-                        <div class="d-flex justify-content-between"> <span>Vat <i class="fa fa-clock-o"></i></span> <span>-20%</span> </div>
-                    </div>
-                    <hr class="mt-0 line">
-                    <div class="p-3 d-flex justify-content-between">
-                        <div class="d-flex flex-column"> <span>Today you pay(US Dollars)</span> <small>After 30 days $9.59</small> </div> <span>$0</span>
-                    </div>
-                    <div class="p-3"> <button class="btn btn-primary btn-block free-button">Try it free for 30 days</button>
-                        <div class="text-center"> <a href="#">Have a promo code?</a> </div>
-                    </div>
+                    <hr class="line">
+                    <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$3000.00</span></div>
+                    <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20.00</span></div>
+                    <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$3020.00</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button>
                 </div>
             </div>
         </div>

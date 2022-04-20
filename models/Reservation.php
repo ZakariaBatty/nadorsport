@@ -54,6 +54,24 @@ class Reservation
             echo 'erreur' . $ex->getMessage();
         }
     }
+
+    //function for recover one reservation by id terrain
+    static public function getReservbyTerrein($id)
+    {
+        try {
+
+            $query = 'SELECT * FROM terrains 
+            LEFT JOIN sports 
+            ON terrains.sport_id = sports.sport_id 
+            WHERE terrains.terrain_id = :id ';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id" => $id));
+            $employe = $stmt->fetch(PDO::FETCH_OBJ);
+            return $employe;
+        } catch (PDOException $ex) {
+            echo 'erreur' . $ex->getMessage();
+        }
+    }
     //function for desactive client
     static public function Conferme($data)
     {
@@ -73,18 +91,11 @@ class Reservation
     {
         try {
             $stmt = DB::connect()->prepare(
-                'SELECT * FROM `reservation` WHERE (terrain_id = :terrain_id AND sport_id = :sport_id AND  date_ =  :date_ 
-             AND hour_start = :hour_start  AND hour_fin = :hour_fin )'
+                ' SELECT * FROM reservation WHERE terrain_id = :terrain_id'
             );
-            $stmt->execute(array(
-                'terrain_id' => $data['terrain_id'],
-                'sport_id' => $data['sport_id'],
-                'date_' => '2022-06-22',
-                'hour_start' => '08:00',
-                'hour_fin' => '10:30'
-            ));
-            $reservation = $stmt->fetch(PDO::FETCH_OBJ);
-            return $reservation;
+            $stmt->bindParam(':terrain_id', $data['terrain_id']);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
         } catch (PDOException $ex) {
             echo 'erreur' . $ex->getMessage();
         }
@@ -93,8 +104,8 @@ class Reservation
     //function chack if reservation exect
     static public function add($data)
     {
-        $stmt = DB::connect()->prepare('INSERT INTO `reservation` (`user_id`, `terrain_id`, `sport_id`, `date_`, `hour_start`, `hour_fin`, `status_reservation`) 
-            VALUES ( :user_id, :terrain_id, :sport_id,:date_, :hour_start, :hour_fin,  :status_reservation)');
+        $stmt = DB::connect()->prepare('INSERT INTO `reservation` (`reserv_id`, `user_id`, `terrain_id`, `sport_id`, `date_`, `hour_start`, `hour_fin`, `status_reservation`)
+         VALUES (NULL, :user_id, :terrain_id, :sport_id, :date_, :hour_start, :hour_fin, :status_reservation)');
         $stmt->bindParam(':user_id', $data['user_id']);
         $stmt->bindParam(':terrain_id', $data['terrain_id']);
         $stmt->bindParam(':sport_id', $data['sport_id']);

@@ -11,7 +11,7 @@ $data = new ClientController();
 $user = $data->getOneClient();
 ?>
 <!-- ======= Breadcrumbs ======= -->
-<section id="breadcrumbs" class="breadcrumbs pt-4">
+<section id="breadcrumbs" class="breadcrumbs pt-5">
     <div class="container">
         <ol>
             <li><a href="<?php echo BASE_URL; ?>">toutes les réservations</a></li>
@@ -27,7 +27,7 @@ $user = $data->getOneClient();
                 <div class="col-md-12">
                     <ul class="nav nav-pills flex-column flex-md-row mb-3">
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo BASE_URL; ?>dasbord"><i class="bx bx-user me-1"></i> Compte</a>
+                            <a class="nav-link active" href="<?php echo BASE_URL; ?>dashbord"><i class="bx bx-user me-1"></i> Compte</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL; ?>my-reservation"><i class="bx bx-check-shield me-1"></i> toutes les réservations</a>

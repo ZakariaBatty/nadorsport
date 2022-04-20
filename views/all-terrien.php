@@ -11,20 +11,18 @@ require_once './views/include/head.php';
 require_once './views/include/navBar.php';
 ?>
 <!-- ======= Breadcrumbs ======= -->
-<section id="breadcrumbs" class="breadcrumbs pt-4">
+<section id="breadcrumbs" class="breadcrumbs pt-5">
     <div class="container">
-
         <ol>
             <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
-            <li>Terrains </li>
+            <li>Checkout </li>
         </ol>
-        <h2>Voir tout les terrains</h2>
-
+        <h2>Page payments</h2>
     </div>
 </section><!-- End Breadcrumbs -->
 <main id="main">
     <!-- ======= Terrian Section ======= -->
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio bg-white">
         <div class="container">
             <?php require_once './views/include/alerts.php'; ?>
             <div class="section-title">

@@ -21,6 +21,13 @@ class ReservationController
         return $terrain;
     }
 
+    // function for  select one terrain by terrain
+    public function reservationChockout()
+    {
+        $terrain = Reservation::getReservbyTerrein($_SESSION['reservation']['terrain_id']);
+        return $terrain;
+    }
+
     // check if reservation exect 
     public function checkReservation()
     {
@@ -33,44 +40,37 @@ class ReservationController
                 'hour_fin' => $_POST['hour_fin']
             );
             $result = Reservation::check($data);
-            die($result);
-
-        // if ($result->reserv_id) {
-        //     Session::set('error', 'terrain deje reserves');
-        //     Redirect::to('all-terrien');
-        // } else if (!$result->reserv_id) {
-        //     $data['user_id'] = 29;
-        //     $data['status_reservation'] = 'confirmé';
-        //     $_SESSION['reservation'] = $data;
-        //     Redirect::to('checkout');
-        // } else {
-        //     Session::set('info', 'Veuillez réessayer*');
-        //     Redirect::to('all-terrien');
-        // }
+            if (
+                $result->terrain_id === $_POST['terrain_id'] && $result->sport_id === $_POST['sport_id']
+                && $result->date_ === $_POST['date_'] && $result->hour_start === $_POST['hour_start'] && $result->hour_fin === $_POST['hour_fin']
+            ) {
+                Session::set('success', 'terrain de foot réservé');
+                Redirect::to('all-terrien');
+            } else {
+                $_SESSION['reservation'] = $data;
+                Redirect::to('checkout');
+            }
         endif;
     }
 
     // add reservation 
     public function addReservation()
     {
-        if (isset($_POST['submit'])) :
-            // $data['user_id'] = 29;
-            // $data['status_reservation'] = 'confirmé';
-            // $data = array(
-            //     'user_id' => $_POST['user_id'],
-            //     'terrain_id' => $_POST['terrain_id'],
-            //     'sport_id' => $_POST['sport_id'],
-            //     'date_' => $_POST['date_'],
-            //     'hour_start' => $_POST['hour_start'],
-            //     'hour_fin' => $_POST['hour_fin'],
-            //     'status_reservation' => 'confirmé',
-            // );
-            $data = $_SESSION['reservation'];
+        if (isset($_POST['checkout'])) :
+            $data = array(
+                'user_id' => $_POST['user_id'],
+                'terrain_id' => $_POST['terrain_id'],
+                'sport_id' => $_POST['sport_id'],
+                'date_' => $_POST['date_'],
+                'hour_start' => $_POST['hour_start'],
+                'hour_fin' => $_POST['hour_fin'],
+                'status_reservation' => $_POST['status_reservation'],
+            );
             $result = Reservation::add($data);
             if ($result === 'ok') {
                 unset($_SESSION['reservation']);
                 Session::set('success', 'réservation effectuée avec succès');
-                Redirect::to('checkout');
+                Redirect::to('dashbord');
             } else {
                 echo $result;
             }

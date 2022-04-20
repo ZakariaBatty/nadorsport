@@ -3,7 +3,7 @@ if (isset($_POST['id'])) :
     $data = new TerrainController();
     $terrain = $data->getOneTerrain($_POST['id']);
 else :
-    Redirect::to('home');
+// Redirect::to('home');
 endif;
 
 if (isset($_POST['check'])) :
@@ -20,15 +20,12 @@ require_once './views/include/navBar.php';
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs pt-4">
+    <section id="breadcrumbs" class="breadcrumbs pt-5">
         <div class="container">
-
             <ol>
                 <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
-                <li>Détails du terrain </li>
+                <li>Terrain details </li>
             </ol>
-            <h2>Détails du terrain</h2>
-
         </div>
     </section><!-- End Breadcrumbs -->
 
@@ -847,17 +844,29 @@ require_once './views/include/navBar.php';
                             <div class="card-header bg-primary " style="color: white"><b>Réservation en ligne</b></div>
                             <form method="post">
                                 <div class="card-body" style="text-align: left;">
-                                    <input type="hidden" name="terrain_id" value="<?= $terrain->terrain_id ?>">
-                                    <input type="hidden" name="terrain_id" value="<?= $terrain->sport_id ?>">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="required" for="field_rental_booking_time_picker_start">Sport</label>
+                                            <select name="terrain_id" class="form-control">
+                                                <option selected value="<?= $terrain->sport_id; ?>"><?= $terrain->name_sport; ?></option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label class="required" for="field_rental_booking_time_picker_start">Terrain</label>
+                                            <select name="terrain_id" class="form-control">
+                                                <option selected value="<?= $terrain->terrain_id; ?>"><?= $terrain->terrain; ?></option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="field_rental_booking_time_picker_date" class="required">Date</label>
-                                        <input type="date" id="field_rental_booking_time_picker_date" name="date_" required="required" class="form-control" value="2022-06-13">
+                                        <input type="date" name="date_" required="required" class="form-control">
                                     </div>
 
                                     <div class="row">
                                         <div class="col">
                                             <label class="required" for="field_rental_booking_time_picker_start">De</label>
-                                            <select id="field_rental_booking_time_picker_start" name="hour_start" class="form-control">
+                                            <select name="hour_start" class="form-control">
                                                 <option value="00:00">00:00</option>
                                                 <option value="00:30">00:30</option>
                                                 <option value="01:00">01:00</option>
@@ -910,7 +919,7 @@ require_once './views/include/navBar.php';
                                         </div>
                                         <div class="col">
                                             <label class="required" for="field_rental_booking_time_picker_end">Jusque</label>
-                                            <select id="field_rental_booking_time_picker_end" name="hour_fin" class="form-control">
+                                            <select name="hour_fin" class="form-control">
                                                 <option value="00:00">00:00</option>
                                                 <option value="00:30">00:30</option>
                                                 <option value="01:00">01:00</option>
@@ -961,71 +970,6 @@ require_once './views/include/navBar.php';
                                                 <option value="23:30">23:30</option>
                                             </select>
                                         </div>
-                                    </div>
-
-                                    <legend class="col-form-label required">Terrains</legend>
-
-                                    <div class="form-check border-bottom py-2">
-                                        <input type="checkbox" id="field_rental_booking_resources_26" name="" class="form-check-input" value="26">
-                                        <label class="form-check-label" for="field_rental_booking_resources_26">
-                                            <span class="d-inline-block px-1 font-weight-bold">
-                                                T1
-                                            </span>
-                                            <span class="d-inline-block text-success px-1 ">
-                                                15dh
-                                                / h
-                                            </span>
-                                            <span class="text-success d-inline-block px-1">
-                                                <i class="bx bx-solid bx bx-check" aria-hidden="true"></i>
-                                                disponible
-                                            </span>
-
-                                            <br>
-
-                                            <small>
-                                                <span class="text-success d-inline-block px-1">
-                                                    <i class="bx bx-clock" aria-hidden="true"></i>
-                                                    disponible de <b>14:00</b> à <b>16:00</b>
-                                                </span>
-
-
-                                                <span class="text-success d-inline-block px-1">
-                                                    <i class="bx bx-solid bx bx-fast-forward" aria-hidden="true"></i>
-                                                    Aussi disponible de <b>19:00</b> à <b>19:00</b>
-                                                </span>
-                                            </small>
-                                        </label>
-                                    </div>
-
-                                    <div class="form-check  py-2">
-                                        <input type="checkbox" id="field_rental_booking_resources_27" name="" class="form-check-input" value="27">
-                                        <label class="form-check-label" for="field_rental_booking_resources_27">
-                                            <span class="d-inline-block px-1 font-weight-bold">
-                                                T2
-                                            </span>
-                                            <span class="d-inline-block text-success px-1 ">
-                                                15dh
-                                                / h
-                                            </span>
-                                            <span class="text-success d-inline-block px-1">
-                                                <i class="bx bx-solid bx bx-check" aria-hidden="true"></i>
-                                                disponible
-                                            </span>
-
-                                            <br>
-
-                                            <small>
-                                                <span class="text-success d-inline-block px-1">
-                                                    <i class="bx bx-clock" aria-hidden="true"></i>
-                                                    disponible de <b>13:00</b> à <b>15:00</b>
-                                                </span>
-
-                                                <span class="text-success d-inline-block px-1">
-                                                    <i class="bx-solid  bx-fast-forward" aria-hidden="true"></i>
-                                                    Aussi disponible de <b>18:00</b> à <b>19:00</b>
-                                                </span>
-                                            </small>
-                                        </label>
                                     </div>
 
                                 </div>
