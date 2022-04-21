@@ -1,9 +1,9 @@
 <?php
 $data = new ClientController();
 $clients = $data->getAllClients();
-if (isset($_POST['update-status'])) :
-    $status = new ClientController();
-    $status->desactive();
+if (isset($_POST['accountDesactivation'])) :
+    $status = new AdminController();
+    $status->desactiveClient();
 endif;
 ?>
 
@@ -53,12 +53,12 @@ require_once './views/include/sidbar.php';
                                             <form method="post" class="mr-1">
                                                 <input type="hidden" name="status" value="1">
                                                 <input type="hidden" name="id" value="<?php echo $client['user_id']; ?>">
-                                                <button type="submit" name="update-status" class="dropdown-item"><span class="badge bg-label-success me-1">Active</span></button>
+                                                <button type="submit" name="accountDesactivation" class="dropdown-item"><span class="badge bg-label-success me-1">Active</span></button>
                                             </form>
                                             <form method="post" class="mr-1">
                                                 <input type="hidden" name="status" value="0">
                                                 <input type="hidden" name="id" value="<?php echo $client['user_id']; ?>">
-                                                <button type="submit" name="update-status" class="dropdown-item"><span class="badge bg-label-danger me-1">Désactive</span></button>
+                                                <button type="submit" name="accountDesactivation" class="dropdown-item"><span class="badge bg-label-danger me-1">Désactive</span></button>
                                             </form>
                                         </div>
                                     </div>

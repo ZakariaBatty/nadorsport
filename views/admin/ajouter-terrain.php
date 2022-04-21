@@ -35,7 +35,7 @@ include('./views/include/sidbar.php');
                                 <div class="form-group col-md-12">
                                     <label>Project Screenshot/Image (Minimum 600px X 600px, Maxsize 2mb)</label>
                                     <div class="custom-file">
-                                        <input type="file" name="image" class="form-control" placeholder="Nom terrain" />
+                                        <input type="file" name="image" class="form-control" placeholder="Image" />
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@ include('./views/include/sidbar.php');
                                                                     <div class="form-group col-md-12">
                                                                         <label>Project Screenshot/Image (Minimum 600px X 600px, Maxsize 2mb)</label>
                                                                         <div class="custom-file">
-                                                                            <input type="file" name="image" class="form-control" value="<?= $terrain['image'] ?>" />
+                                                                            <input type="file" name="image" class="form-control" />
                                                                         </div>
                                                                     </div>
                                                                 </div>

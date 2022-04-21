@@ -78,19 +78,39 @@ class ReservationController
         endif;
     }
 
+    // function for chnage statut
+    public function changeStatus()
+    {
+        if (isset($_POST['chnageStatus'])) :
+            $data = array(
+                'id' => $_POST['id'],
+                'status' => $_POST['status'],
+            );
+            $result = Reservation::Conferme($data);
+            if ($result === 'ok') {
+                Session::set('success', 'status a bien été change');
+                Redirect::to('reservation');
+            } else {
+                echo $result;
+                Session::set('error', 'Veuillez réessayer*');
+                Redirect::to('reservation');
+            }
+        endif;
+    }
+
     // function for delete terrain
-    // public function deleteTerrain()
-    // {
-    //     if (isset($_POST['id_terrain'])) :
-    //         $data['id_terrain'] = $_POST['id_terrain'];
-    //         $result = Terrains::delete($data);
-    //         if ($result === 'ok') {
-    //             Session::set('error', 'Terrain suprimé');
-    //             Redirect::to('ajouter-terrain');
-    //         } else {
-    //             Session::set('info', 'Veuillez réessayer*');
-    //             Redirect::to('ajouter-terrain');
-    //         }
-    //     endif;
-    // }
+    public function deleteReservation()
+    {
+        if (isset($_POST['delete'])) :
+            $data['reserv_id'] = $_POST['reserv_id'];
+            $result = Reservation::delete($data);
+            if ($result === 'ok') {
+                Session::set('error', 'Reservation suprimé');
+                Redirect::to('reservation');
+            } else {
+                Session::set('info', 'Veuillez réessayer*');
+                Redirect::to('reservation');
+            }
+        endif;
+    }
 }

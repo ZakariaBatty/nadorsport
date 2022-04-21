@@ -219,6 +219,9 @@ h6 {
   .navbar .dropdown .dropdown:hover > ul {
     left: -100%;
   }
+  .form-search {
+    display: flex !important;
+  }
 }
 
 /**
@@ -326,7 +329,7 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #button {
-  padding: 0.5rem 1rem;
+  padding: 1.4rem 5rem;
   border-radius: 0;
 }
 #hero {
@@ -432,7 +435,7 @@ h6 {
     margin: 0 auto;
   }
   #button {
-    padding: 0.4rem 4rem;
+    padding: 1rem 6rem;
     border-radius: 0;
   }
   #hero .form-select {
@@ -441,11 +444,17 @@ h6 {
   #hero .choisir-terrain {
     bottom: -157px !important;
   }
+  .form-search {
+    display: block !important;
+  }
 }
 @media (min-width: 992px) {
   #services .card-services {
     width: 27rem;
     margin-top: 6px;
+  }
+  .form-search {
+    display: flex !important;
   }
 }
 /*--------------------------------------------------------------

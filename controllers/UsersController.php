@@ -10,16 +10,21 @@ class UsersController
             $result = User::login($data);
 
             if ($result->email === $_POST['email'] && password_verify($_POST['password'], $result->password)) :
-                if (isset($_SESSION['reservation'])) {
-                    $_SESSION['logged'] = true;
-                    $_SESSION['email'] = $result->email;
-                    $_SESSION['user_id'] = $result->user_id;
-                    header("Location: checkout");
+                if (!$result->status) {
+                    Session::set('error', 'Votre compte désactivé');
+                    Redirect::to('login');
                 } else {
-                    $_SESSION['logged'] = true;
-                    $_SESSION['email'] = $result->email;
-                    $_SESSION['user_id'] = $result->user_id;
-                    header("Location: dashbord");
+                    if (isset($_SESSION['reservation'])) {
+                        $_SESSION['logged'] = true;
+                        $_SESSION['email'] = $result->email;
+                        $_SESSION['user_id'] = $result->user_id;
+                        header("Location: checkout");
+                    } else {
+                        $_SESSION['logged'] = true;
+                        $_SESSION['email'] = $result->email;
+                        $_SESSION['user_id'] = $result->user_id;
+                        header("Location: dashbord");
+                    }
                 }
             else :
                 Session::set('error', 'Email ou mot de passe est incorrect');

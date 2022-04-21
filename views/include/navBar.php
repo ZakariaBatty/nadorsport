@@ -21,7 +21,7 @@ endif;
                     <li class="dropdown"><a href="#"><span><?= $user->email ?></span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo BASE_URL; ?>dashbord">Mon compte</a></li>
-                            <li><a href="<?php echo BASE_URL; ?>logout">Se déconnecter</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>logout-user">Se déconnecter</a></li>
                         </ul>
                     </li>
                 <?php } else { ?>

@@ -10,7 +10,7 @@ class Reservation
         LEFT JOIN clients
         ON reservation.user_id = clients.user_id
         LEFT JOIN sports
-        ON reservation.sport_id = sports.sport_id');
+        ON reservation.sport_id = sports.sport_id ORDER BY reserv_id DESC');
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt = null;
@@ -44,12 +44,10 @@ class Reservation
             ON reservation.user_id = clients.user_id 
             LEFT JOIN sports 
             ON reservation.sport_id = sports.sport_id 
-            WHERE reservation.user_id = :id 
-            ORDER BY reserv_id DESC';
+            WHERE reservation.user_id = :id ORDER BY reserv_id DESC';
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id" => $id));
-            $employe = $stmt->fetch(PDO::FETCH_OBJ);
-            return $employe;
+            return $stmt->fetchAll();
         } catch (PDOException $ex) {
             echo 'erreur' . $ex->getMessage();
         }
@@ -72,10 +70,10 @@ class Reservation
             echo 'erreur' . $ex->getMessage();
         }
     }
-    //function for desactive client
+    //function chnage status reservation
     static public function Conferme($data)
     {
-        $stmt = DB::connect()->prepare('UPDATE reservation SEt status = :status WHERE reserv_id= :id');
+        $stmt = DB::connect()->prepare('UPDATE reservation SEt status_reservation = :status WHERE reserv_id= :id');
         $stmt->bindParam(':id', $data['id']);
         $stmt->bindParam(':status', $data['status']);
 
@@ -119,5 +117,22 @@ class Reservation
             return 'error';
         endif;
         $stmt = null;
+    }
+
+    //function for delete reservation
+    static public function delete($data)
+    {
+        $id = $data['reserv_id'];
+        // die($id);
+        try {
+            $query = 'DELETE FROM reservation WHERE reserv_id=:reserv_id';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":reserv_id" => $id));
+            if ($stmt->execute()) :
+                return 'ok';
+            endif;
+        } catch (PDOException $ex) {
+            echo 'erreur' . $ex->getMessage();
+        }
     }
 }

@@ -1,11 +1,11 @@
 <?php
-if (isset($_POST['chnagePassword'])) :
+if (isset($_POST['changePassword'])) :
     if ($_POST['newPassword'] === $_POST['password']) :
         $change = new AdminController();
         $change->Password();
-    // else :
-    //     Session::set('info', 'Le mot de passe est incorrect');
-    //     Redirect::to('change-password');;
+    else :
+        Session::set('info', 'Le mot de passe est incorrect');
+        Redirect::to('change-password');;
     endif;
 
 endif;
@@ -35,28 +35,22 @@ require_once './views/include/sidbar.php';
                 </h5>
                 <!-- Account -->
                 <div class="card-body">
-                    <form id="formAccountSettings" method="POST">
+                    <form method="POST">
                         <input type="hidden" name="id" value="<?= $_SESSION['admin_info']->id ?>">
-                        <!-- <div class="row">
-                            <div class="mb-3 col-md-6">
-                                <label for="firstName" class="form-label">le mot de passe</label>
-                                <input class="form-control" type="text" name="password" placeholder="*******" />
-                            </div>
-                        </div> -->
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label for="lastName" class="form-label">nouveau mot de passe</label>
-                                <input class="form-control" type="text" name="newPassword" placeholder="********" />
+                                <label for="newPassword" class="form-label">nouveau mot de passe</label>
+                                <input class="form-control" type="password" name="newPassword" placeholder="********" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label for="email" class="form-label">Confirmez le mot de passe</label>
-                                <input class="form-control" type="text" id="email" name="password" placeholder="******" />
+                                <label for="password" class="form-label">Confirmez le mot de passe</label>
+                                <input class="form-control" type="password" id="email" name="password" placeholder="******" />
                             </div>
                         </div>
                         <div class=" mt-2">
-                            <button type="submit" name="chnagePassword" class="btn btn-primary me-2">confirmer</button>
+                            <button type="submit" name="changePassword" class="btn btn-primary me-2">confirmer</button>
                         </div>
                     </form>
                 </div>

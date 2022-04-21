@@ -65,4 +65,32 @@ class Client
         endif;
         $stmt = null;
     }
+    // change password 
+    static public function changePassowrd($data)
+    {
+        $stmt = DB::connect()->prepare('UPDATE clients SEt 
+          password = :password WHERE user_id= :id');
+        $stmt->bindParam(':id', $data['id']);
+        $stmt->bindParam(':password', $data['password']);
+        if ($stmt->execute()) :
+            return 'ok';
+        else :
+            return 'error';
+        endif;
+        $stmt = null;
+    }
+
+    //uplod profile
+    static public function upload($data)
+    {
+        $stmt = DB::connect()->prepare('UPDATE clients SEt photo = :photo  WHERE user_id= :id');
+        $stmt->bindParam(':id', $data['id']);
+        $stmt->bindParam(':photo', $data['photo']);
+        if ($stmt->execute()) :
+            return 'ok';
+        else :
+            return 'error';
+        endif;
+        $stmt = null;
+    }
 }

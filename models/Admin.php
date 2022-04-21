@@ -71,11 +71,42 @@ class Admin
         $stmt = null;
     }
 
+    //uplod profile
+    static public function upload($data)
+    {
+        $stmt = DB::connect()->prepare('UPDATE admin SEt photo = :photo  WHERE id= :id');
+        $stmt->bindParam(':id', $data['id']);
+        $stmt->bindParam(':photo', $data['photo']);
+        if ($stmt->execute()) :
+            return 'ok';
+        else :
+            return 'error';
+        endif;
+        $stmt = null;
+    }
+
+
     //function for desactive account client
     static public function desaAdmin($data)
     {
         $stmt = DB::connect()->prepare('UPDATE admin SEt 
           status = :status   WHERE id= :id');
+        $stmt->bindParam(':id', $data['id']);
+        $stmt->bindParam(':status', $data['status']);
+
+        if ($stmt->execute()) :
+            return 'ok';
+        else :
+            return 'error';
+        endif;
+        $stmt = null;
+    }
+
+    //function for desactive client
+    static public function desaClient($data)
+    {
+        $stmt = DB::connect()->prepare('UPDATE clients SEt 
+         status = :status   WHERE user_id= :id');
         $stmt->bindParam(':id', $data['id']);
         $stmt->bindParam(':status', $data['status']);
 
@@ -94,7 +125,6 @@ class Admin
           password = :password   WHERE id= :id');
         $stmt->bindParam(':id', $data['id']);
         $stmt->bindParam(':password', $data['password']);
-
         if ($stmt->execute()) :
             return 'ok';
         else :

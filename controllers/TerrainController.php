@@ -81,35 +81,41 @@ class TerrainController
     public function updateTerrain()
     {
         if (isset($_POST['Modifier'])) :
+            // Check if image file is a actual image or fake image
+            $image = $_FILES['image']['name'];
             $dir = "assets/img/portfolio/";
             $target = $dir . basename($_FILES['image']['name']);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target, PATHINFO_EXTENSION));
-
-            // Check if image file is a actual image or fake image
             $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if ($check !== false) {
 
-                $uploadOk = 1;
-            }
-            // Allow certain file formats
-            if (
-                $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            ) {
-                // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                $uploadOk = 0;
-            }
-            // Check if $uploadOk is set to 0 by an error
-            if ($uploadOk == 0) {
-                return "error";
-                // if everything is ok, try to upload file
+            if ($image == "") {
+                $image = $_POST['image-terrain'];
             } else {
-                if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)) {
+                if ($check !== false) {
+
+                    $uploadOk = 1;
+                }
+                // Allow certain file formats
+                if (
+                    $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                ) {
+                    // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    $uploadOk = 0;
+                }
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0) {
+                    return "error";
+                    // if everything is ok, try to upload file
+                } else {
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)) {
+                    }
                 }
             }
+            // data
             $data = array(
                 'terrain_id' => $_POST['terrain_id'],
-                'image' => $_FILES['image']['name'],
+                'image' =>  $image,
                 'terrain' => $_POST['terrain'],
                 'localisation' => $_POST['localisation'],
                 'prix' => $_POST['prix'],
