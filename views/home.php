@@ -1,14 +1,3 @@
-<?php
-if (isset($_POST['check'])) :
-    $check = new ReservationController();
-    $check->checkReservation();
-endif;
-$data = new  TerrainController();
-$terrains = $data->getAllTerrainLimit();
-$datasport = new  SportController();
-$sports = $datasport->getAllSports();
-$AllTerrains =  $data->getAllTerrain();
-?>
 <!-- content -->
 <?php
 require_once './views/include/head.php';
