@@ -1,9 +1,12 @@
 <?php
-require_once './views/include/headdash.php';
 if (isset($_POST['submit'])) :
     $loginUser = new UsersController();
     $loginUser->auth();
 endif;
+?>
+
+<?php
+require_once './views/include/headdash.php';
 ?>
 <main id="main">
     <div class="container">
