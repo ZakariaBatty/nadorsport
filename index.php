@@ -7,7 +7,7 @@ $client = new ClientsController();
 
 
 $pages = [
-    'logout', 'login-admin', 'home', 'about', 'contact', 'terrien-details', 'all-terrien', 'email',
+    'logout', 'login-admin', 'home', 'about', 'contact', 'terrien-details', 'all-terrien',
     'login', 'register', 'c-panel', 'account', 'ajouter-terrain', 'clients', 'reservation',
     'dashbord', 'change-password', 'ajouter-admin', 'reservation-terrain', 'delete', 'all-terrien-basket', 'checkout', 'my-profile', 'logout-user'
 ];
