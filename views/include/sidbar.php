@@ -156,7 +156,7 @@
                                 <li>
                                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>account">
                                         <i class="bx bx-user me-2"></i>
-                                        <span class="align-middle">My Account</span>
+                                        <span class="align-middle">Mon compte</span>
                                     </a>
                                 </li>
                                 <li>

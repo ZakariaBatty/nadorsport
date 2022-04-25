@@ -94,13 +94,13 @@ require_once './views/include/header.php';
                                 </h3>
 
 
-                                <div class="pull-right d-block d-md-none">
+                                <!-- <div class="pull-right d-block d-md-none">
                                     <div class="btn-group pb-1 flatpickr" role="group" aria-label="Calendar">
                                         <a href="#" class="btn btn-outline-secondary"><span class="fa-solid fa-arrow-left"></span></a>
                                         <a href="#" class="btn btn-outline-secondary">AUJOURD'HUI</a>
                                         <a href="#" class="btn btn-outline-secondary"><span class="fa-solid fa-arrow-right"></span></a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
 

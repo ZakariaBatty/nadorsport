@@ -9,10 +9,6 @@ endif;
 $reserv = new ReservationController();
 $checkout = $reserv->reservationChockout();
 ?>
-<?php
-require_once './views/include/head.php';
-require_once './views/include/navBar.php';
-?>
 <main id="main">
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs pt-5">

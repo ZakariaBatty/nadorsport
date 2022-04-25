@@ -15,9 +15,8 @@ require_once './views/include/navBar.php';
     <div class="container">
         <ol>
             <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
-            <li>Checkout </li>
+            <li>Terrains </li>
         </ol>
-        <h2>Page payments</h2>
     </div>
 </section><!-- End Breadcrumbs -->
 <main id="main">
