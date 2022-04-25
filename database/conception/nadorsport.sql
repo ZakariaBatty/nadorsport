@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 19 avr. 2022 à 16:01
+-- Généré le : lun. 25 avr. 2022 à 04:13
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.5
 
@@ -43,7 +43,32 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `lastName`, `firstName`, `email`, `password`, `photo`, `phone`, `status`) VALUES
-(1, 'admin ', 'admin', 'admin@gmail.com', '$2y$12$COMKzl7moYIfIUyKmDIaj.gksVcgLm61s86FLbWqyrS3m/iBynP5W', NULL, '687904633', 1);
+(1, 'admin ', 'admin', 'admin@gmail.com', '$2y$12$4mqCUC5XeF2qm8Ev8ZYhB./dTmMowwSHXcbRvid74sjf4RDoEPTXK', '5.png', '687904633', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `date`, `name`, `email`) VALUES
+(2, '2022-04-24', '', ''),
+(3, '2022-04-25', '', ''),
+(4, '2022-04-23', '', ''),
+(5, '2022-04-26', '', ''),
+(6, '2022-04-22', '', ''),
+(7, '2022-04-27', 'zakaria', 'batty@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -71,16 +96,17 @@ CREATE TABLE `clients` (
   `email` varchar(45) NOT NULL,
   `phone` int(11) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `status` tinyint(1) NOT NULL,
+  `photo` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
-INSERT INTO `clients` (`user_id`, `firstName`, `lastName`, `email`, `phone`, `password`, `status`) VALUES
-(29, 'ziko', 'ziko', 'ziko@gmail.com', 6666666, '$2y$12$dsTkAMufMrlI6NrbCGZuc.WGet9csrTUky5R.dCjXydbIz12JWmP6', 0),
-(31, 'zakaria', 'batty', 'zbatty0912@gmail.com', 687904633, '$2y$12$a6uI3mRT33FoRJrCYJa3v.qi/ZBz63nu6mAqEU5fPLGLk0ASwdfIi', 0);
+INSERT INTO `clients` (`user_id`, `firstName`, `lastName`, `email`, `phone`, `password`, `status`, `photo`) VALUES
+(29, 'ziko', 'ziko', 'ziko@gmail.com', 6666666, '$2y$12$dsTkAMufMrlI6NrbCGZuc.WGet9csrTUky5R.dCjXydbIz12JWmP6', 1, NULL),
+(31, 'zakaria', 'batty', 'zbatty0912@gmail.com', 687904633, '$2y$12$Ik1Uy9RkrlmJMPelMbewr.YBM1jvt7pj6w4xRA8HcFNDGDqoRiQ0a', 1, '7.png');
 
 -- --------------------------------------------------------
 
@@ -96,15 +122,17 @@ CREATE TABLE `reservation` (
   `date_` varchar(45) NOT NULL,
   `hour_start` varchar(45) NOT NULL,
   `hour_fin` varchar(45) NOT NULL,
-  `status_reservation` varchar(45) NOT NULL
+  `status_reservation` varchar(45) NOT NULL,
+  `timeslot` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
-INSERT INTO `reservation` (`reserv_id`, `user_id`, `terrain_id`, `sport_id`, `date_`, `hour_start`, `hour_fin`, `status_reservation`) VALUES
-(6, 29, 7, 2, '2022-06-22', '08:00', '10:30', 'confirmé');
+INSERT INTO `reservation` (`reserv_id`, `user_id`, `terrain_id`, `sport_id`, `date_`, `hour_start`, `hour_fin`, `status_reservation`, `timeslot`) VALUES
+(4, 31, 12, 2, '2022-04-24', '14:00', '15:00', 'attendre', '09:00AM-10:00AM'),
+(7, 31, 11, 2, '2022-04-23', '30:30', '20:30', 'confirmé', '13:00PM-14:00PM');
 
 -- --------------------------------------------------------
 
@@ -145,8 +173,7 @@ CREATE TABLE `terrains` (
 --
 
 INSERT INTO `terrains` (`terrain_id`, `image`, `terrain`, `localisation`, `prix`, `sport_id`) VALUES
-(7, 'terrain1 (1).png', 'terrain 1', 'localisation', 14, 1),
-(11, 'terrain1 (2).png', 'terrain 2', 'localisation', 30, 1),
+(11, 'terrain1 (1).png', 'terrain 1', 'localisation', 30, 1),
 (12, 'terrain1 (3).png', 'terrain 4', 'localisation', 30, 2);
 
 --
@@ -157,6 +184,12 @@ INSERT INTO `terrains` (`terrain_id`, `image`, `terrain`, `localisation`, `prix`
 -- Index pour la table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `bookings`
+--
+ALTER TABLE `bookings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -178,8 +211,8 @@ ALTER TABLE `clients`
 --
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`reserv_id`),
-  ADD KEY `terrain_id` (`terrain_id`),
-  ADD KEY `user_id` (`user_id`),
+  ADD KEY `reservation_ibfk_1` (`user_id`),
+  ADD KEY `reservation_ibfk_2` (`terrain_id`),
   ADD KEY `reservation_ibfk_3` (`sport_id`);
 
 --
@@ -206,6 +239,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT pour la table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT pour la table `calendrier`
 --
 ALTER TABLE `calendrier`
@@ -221,7 +260,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reserv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `reserv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `sports`
@@ -243,9 +282,9 @@ ALTER TABLE `terrains`
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `clients` (`user_id`),
-  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`terrain_id`) REFERENCES `terrains` (`terrain_id`),
-  ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`sport_id`) REFERENCES `sports` (`sport_id`);
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `clients` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`terrain_id`) REFERENCES `terrains` (`terrain_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`sport_id`) REFERENCES `sports` (`sport_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `terrains`
