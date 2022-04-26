@@ -32,7 +32,7 @@
                 <div class="box recommended">
                     <span class="recommended-badge">Recommandé</span>
                     <h3>1 ans</h3>
-                    <h4><sup>$</sup>0<span> / 6 mois</span></h4>
+                    <h4><sup>$</sup>0<span> / 1 ans</span></h4>
                     <ul>
                         <li>Aida dere</li>
                         <li>Nec feugiat nisl</li>
@@ -49,7 +49,7 @@
             <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
                 <div class="box">
                     <h3>6 mois</h3>
-                    <h4><sup>$</sup>0<span> / 1 ans</span></h4>
+                    <h4><sup>$</sup>0<span> / 6 mois</span></h4>
                     <ul>
                         <li>Aida dere</li>
                         <li>Nec feugiat nisl</li>

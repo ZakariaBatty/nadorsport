@@ -10,6 +10,7 @@ class ContactController
             $subjectName = $_POST['subject'];
             $message = $_POST['message'];
 
+
             $to = $toEmail;
             $subject = $subjectName;
             $headers = "MIME-Version: 1.0" . "\r\n";
