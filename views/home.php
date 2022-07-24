@@ -69,7 +69,7 @@ require_once './views/include/header.php';
                 <?php else : ?>
                     <tr>
                         <div class="col-lg-4 col-md-6 portfolio-item">
-                            <div class="alert alert-info">aucun terrians trouvé</div>
+                            <div class="alert alert-info">aucun terrains trouvé</div>
                         </div>
                     </tr>
                 <?php endif; ?>

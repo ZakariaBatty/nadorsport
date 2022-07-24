@@ -63,17 +63,17 @@ require_once './views/include/sidbar.php';
                                                 <form method="post" class="mr-1">
                                                     <input type="hidden" name="status" value="confirmé">
                                                     <input type="hidden" name="id" value="<?php echo $reservation['reserv_id']; ?>">
-                                                    <button type="submit" name="chnageStatus" class="dropdown-item"><span class="badge bg-label-success me-1">confirmé</span></button>
+                                                    <button type="submit" name="chnageStatus" class="dropdown-item"><span class="badge bg-label-success me-1">Confirmée</span></button>
                                                 </form>
                                                 <form method="post" class="mr-1">
                                                     <input type="hidden" name="status" value="attendre">
                                                     <input type="hidden" name="id" value="<?php echo $reservation['reserv_id']; ?>">
-                                                    <button type="submit" name="chnageStatus" class="dropdown-item"><span class="badge bg-label-info me-1">attendre</span></button>
+                                                    <button type="submit" name="chnageStatus" class="dropdown-item"><span class="badge bg-label-info me-1">En attente</span></button>
                                                 </form>
                                                 <form method="post" class="mr-1">
                                                     <input type="hidden" name="status" value="attendre">
                                                     <input type="hidden" name="reserv_id" value="<?php echo $reservation['reserv_id']; ?>">
-                                                    <button type="submit" name="delete" class="dropdown-item"><span class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i> Delete</span></button>
+                                                    <button type="submit" name="delete" class="dropdown-item"><span class="badge bg-label-danger me-1">Annulée</span></button>
                                                 </form>
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@ require_once './views/include/sidbar.php';
                         <?php else : ?>
                             <tr>
                                 <td>
-                                    <div class="alert alert-info">aucun réservation trouvé</div>
+                                    <div class="alert alert-info">aucune réservation trouvée</div>
                                 </td>
                             </tr>
                         <?php endif; ?>
