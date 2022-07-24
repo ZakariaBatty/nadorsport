@@ -70,7 +70,7 @@ include('./views/include/sidbar.php');
                 <div class="card">
                     <h5 class="card-header">Modifier</h5>
                     <div class="table-responsive text-nowrap">
-                        <table class="table table-hover">
+                        <table id="dataTerrains" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th></th>

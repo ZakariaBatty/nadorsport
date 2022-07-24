@@ -24,15 +24,15 @@ require_once './views/include/sidbar.php';
             <h5 class="card-header">Vérifie maintenant</h5>
             <?php include('./views/include/alerts.php'); ?>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
+                <table id="datareservation" class="table table-hover">
                     <thead>
                         <tr>
                             <th>Client</th>
                             <th>Phone</th>
-                            <th>terrain</th>
                             <th>sport</th>
-                            <th>date</th>
-                            <th>heure</th>
+                            <th>terrain</th>
+                            <th>date et heure de début</th>
+                            <th>date et heure de fin</th>
                             <th>Prix</th>
                             <th>Status</th>
                             <th>Actions</th>
@@ -44,10 +44,10 @@ require_once './views/include/sidbar.php';
                                 <tr>
                                     <td><?= $reservation['firstName']; ?> <?= $reservation['lastName']; ?></td>
                                     <td> <?= $reservation['phone']; ?></td>
-                                    <td> <?= $reservation['terrain']; ?></td>
                                     <td> <?= $reservation['name_sport']; ?></td>
-                                    <td> <?= $reservation['date_']; ?></td>
-                                    <td> <?= $reservation['hour_start']; ?> | <?= $reservation['hour_fin']; ?></td>
+                                    <td> <?= $reservation['terrain']; ?></td>
+                                    <td> <?= $reservation['start_datatime']; ?></td>
+                                    <td> <?= $reservation['end_datatime']; ?></td>
                                     <td> <?= $reservation['prix']; ?> dh /1h</td>
                                     <td> <?= $reservation['status_reservation'] === 'confirmé' ?
                                                 '<span class="badge bg-label-success me-1">confirmé</span>' :

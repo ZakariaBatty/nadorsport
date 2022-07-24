@@ -37,8 +37,9 @@ require_once './views/include/navBar.php';
                     </select>
                 </div>
                 <div class="col-md-2 col-select">
-                    <input type="date" name="date_" required="required" placeholder="Date" class="form-select">
+                    <input type="date" name="start_datatime" required="required" placeholder="Date" class="form-select">
                 </div>
+                <input type="hidden" name="end_datatime" value="">
                 <div class="col-md-2 col-select">
                     <select required name="hour_start" class="form-select">
                         <option value="00:00">00:00</option>

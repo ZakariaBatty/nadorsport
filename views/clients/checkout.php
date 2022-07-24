@@ -1,4 +1,5 @@
 <?php
+print_r($_SESSION['reservation']);
 if (!isset($_SESSION['reservation'])) {
     Redirect::to('all-terrien');
 }
@@ -15,23 +16,23 @@ $checkout = $reserv->reservationChockout();
         <div class="container">
             <ol>
                 <li><a href="<?php echo BASE_URL; ?>">Acceuil</a></li>
-                <li>Checkout </li>
+                <li>Paiements </li>
             </ol>
-            <h2>Page payments</h2>
+            <h2>Paiements de page</h2>
         </div>
     </section><!-- End Breadcrumbs -->
     <div class="container mt-5 p-3 rounded cart">
         <div class="row no-gutters">
             <div class="col-md-8">
                 <div class="product-details mr-2">
-                    <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue payments</span></div>
+                    <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continuer les paiements</span></div>
                     <hr>
                     <h6 class="mb-0">Panier</h6>
                     <div class="d-flex justify-content-between"><span>Vous avez deux façons de payer</span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                         <div class="d-flex flex-row"><img class="rounded m-2" src="assets/img/portfolio/<?= $checkout->image ?>" width="40">
-                            <div class="ml-2"><span class="font-weight-bold d-block"><?= $checkout->name_sport ?> <?= $checkout->terrain ?></span><span class="spec"><?= $_SESSION['reservation']['date_'] ?>, <?= $_SESSION['reservation']['hour_start'] ?> || <?= $_SESSION['reservation']['hour_fin'] ?></span></div>
+                            <div class="ml-2"><span class="font-weight-bold d-block"><?= $checkout->name_sport ?> <?= $checkout->terrain ?></span><span class="spec"><?= $_SESSION['reservation']['start_datatime'] ?> || <?= $_SESSION['reservation']['end_datatime'] ?></span></div>
                         </div>
                         <div class="d-flex flex-row align-items-center"><span class="d-block"></span><span class="d-block ml-5 font-weight-bold"><?= $checkout->prix ?>dh/ 1h</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
                     </div>
@@ -39,11 +40,10 @@ $checkout = $reserv->reservationChockout();
                         <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
                         <input type="hidden" name="terrain_id" value="<?= $checkout->terrain_id ?>">
                         <input type="hidden" name="sport_id" value="<?= $checkout->sport_id ?>">
-                        <input type="hidden" name="date_" value="<?= $_SESSION['reservation']['date_'] ?>">
-                        <input type="hidden" name="hour_start" value="<?= $_SESSION['reservation']['hour_start'] ?>">
-                        <input type="hidden" name="hour_fin" value="<?= $_SESSION['reservation']['hour_fin'] ?>">
+                        <input type="hidden" name="start_datatime" value="<?= $_SESSION['reservation']['start_datatime'] ?>">
+                        <input type="hidden" name="end_datatime" value="<?= $_SESSION['reservation']['end_datatime'] ?>">
                         <input type="hidden" name="status_reservation" value="confirmé">
-                        <button class="btn btn-primary mx-auto mt-4" name="checkout" type="submit">payment</button>
+                        <button class="btn btn-primary mx-auto mt-4" name="checkout" type="submit">Paiements</button>
                     </form>
                 </div>
             </div>

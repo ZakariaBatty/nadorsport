@@ -21,7 +21,7 @@ require_once './views/include/sidbar.php';
             <h5 class="card-header">Informations clients</h5>
             <?php include('./views/include/alerts.php'); ?>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
+                <table id="dataClients" class="table table-hover">
                     <thead>
                         <tr>
                             <th>Email</th>

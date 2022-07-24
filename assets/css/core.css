@@ -3,6 +3,36 @@
 * File include item demo only specific css only
 ******************************************************************************/
 
+/* datatables */
+
+.dataTables_filter {
+  float: right;
+  padding-right: 35px;
+}
+
+.dataTables_length {
+  width: 12rem;
+  padding-left: 20px;
+  margin: 0px 6px 0px 5px;
+}
+.dataTables_length > select {
+  margin: 0px 6px 0px 5px;
+}
+.dataTables_length > label {
+  display: flex;
+}
+
+.dataTables_info {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.dataTables_paginate {
+  float: right;
+  padding-right: 35px;
+  padding-top: 20px;
+}
+
 .menu .app-brand.demo {
   height: 64px;
   margin-top: 12px;

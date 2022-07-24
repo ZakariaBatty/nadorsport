@@ -31,7 +31,7 @@ if (isset($_GET['page'])) :
             endif;
             require_once './views/include/footerdash.php';
             //@ pages clients
-        } else if ($page === 'dashbord' || $page === 'my-profile' || $page === 'checkout') {
+        } else if ($page === 'dashbord' || $page === 'my-profile' || $page === 'checkout' || $page === 'logout-user') {
             require_once './views/include/head.php';
             require_once './views/include/navBar.php';
             // check if admin connected

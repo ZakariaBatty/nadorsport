@@ -53,6 +53,21 @@ class Reservation
         }
     }
 
+    // get all reservation by id terrain
+    static public function calendarByIdTerrain($id)
+    {
+        try {
+
+            $query = 'SELECT * FROM reservation 
+             WHERE terrain_id = :id ORDER BY reserv_id DESC';
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute(array(":id" => $id));
+            return $stmt->fetchAll();
+        } catch (PDOException $ex) {
+            echo 'erreur' . $ex->getMessage();
+        }
+    }
+
     //function for recover one reservation by id terrain
     static public function getReservbyTerrein($id)
     {
@@ -64,12 +79,14 @@ class Reservation
             WHERE terrains.terrain_id = :id ';
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id" => $id));
-            $employe = $stmt->fetch(PDO::FETCH_OBJ);
-            return $employe;
+            $terrain = $stmt->fetch(PDO::FETCH_OBJ);
+            return $terrain;
         } catch (PDOException $ex) {
             echo 'erreur' . $ex->getMessage();
         }
     }
+
+
     //function chnage status reservation
     static public function Conferme($data)
     {
@@ -102,14 +119,13 @@ class Reservation
     //function chack if reservation exect
     static public function add($data)
     {
-        $stmt = DB::connect()->prepare('INSERT INTO `reservation` (`reserv_id`, `user_id`, `terrain_id`, `sport_id`, `date_`, `hour_start`, `hour_fin`, `status_reservation`)
-         VALUES (NULL, :user_id, :terrain_id, :sport_id, :date_, :hour_start, :hour_fin, :status_reservation)');
+        $stmt = DB::connect()->prepare('INSERT INTO `reservation` (`reserv_id`, `user_id`, `terrain_id`, `sport_id`, `start_datatime`, `end_datatime`, `status_reservation`)
+         VALUES (NULL, :user_id, :terrain_id, :sport_id, :start_datatime, :end_datatime, :status_reservation)');
         $stmt->bindParam(':user_id', $data['user_id']);
         $stmt->bindParam(':terrain_id', $data['terrain_id']);
         $stmt->bindParam(':sport_id', $data['sport_id']);
-        $stmt->bindParam(':date_', $data['date_']);
-        $stmt->bindParam(':hour_start', $data['hour_start']);
-        $stmt->bindParam(':hour_fin', $data['hour_fin']);
+        $stmt->bindParam(':start_datatime', $data['start_datatime']);
+        $stmt->bindParam(':end_datatime', $data['end_datatime']);
         $stmt->bindParam(':status_reservation', $data['status_reservation']);
         if ($stmt->execute()) :
             return 'ok';

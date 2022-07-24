@@ -11,6 +11,40 @@ a {
   text-decoration: none;
 }
 
+#calendar {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+/* datatables */
+
+.dataTables_filter {
+  float: right;
+  padding-right: 35px;
+}
+
+.dataTables_length {
+  width: 12rem;
+  padding-left: 20px;
+  margin: 0px 6px 0px 5px;
+}
+.dataTables_length > select {
+  margin: 0px 6px 0px 5px;
+}
+.dataTables_length > label {
+  display: flex;
+}
+
+.dataTables_info {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.dataTables_paginate {
+  float: right;
+  padding-right: 35px;
+  padding-top: 20px;
+}
+
 a:hover {
   color: #ea6981;
   text-decoration: none;

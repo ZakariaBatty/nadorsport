@@ -44,14 +44,15 @@ require_once './views/include/navBar.php';
                 <?php if (count($terrains) > 0) : ?>
                     <?php foreach ($terrains as $terrain) : ?>
                         <div class="col-lg-4 col-md-6 portfolio-item <?= $terrain['name_sport']; ?>">
-                            <img src="assets/img/portfolio/terrain1 (1).png" class="img-fluid" alt="">
+                            <img src="assets/img/portfolio/<?= $terrain['image']; ?>" class="img-fluid" alt="">
                             <div class="portfolio-info" style="    display: flex; justify-content: space-between;">
                                 <div>
-                                    <h4><?php echo $terrain['terrain']; ?> </h4>
-                                    <p><?php echo $terrain['localisation']; ?></p>
+                                    <h4><?= $terrain['terrain']; ?> </h4>
+                                    <p><?= $terrain['localisation']; ?></p>
                                 </div>
                                 <form method="post" class="mr-1" action="terrien-details">
-                                    <input type="hidden" name="id" value="<?php echo $terrain['terrain_id']; ?>">
+                                    <?php $_SESSION['terrain_id'] = $terrain['terrain_id'] ?>
+                                    <input type="hidden" name="id" value="<?= $terrain['terrain_id']; ?>">
                                     <button class="btn btn-primary"><i class="bx bx-plus"></i></button>
                                 </form>
                             </div>

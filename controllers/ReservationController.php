@@ -21,6 +21,38 @@ class ReservationController
         return $terrain;
     }
 
+    // get all reservation by id terrain
+    public function calendar($id)
+    {
+        $calendar = Reservation::calendarByIdTerrain($id);
+        $data = array();
+        foreach ($calendar as $row) {
+            $data[] = array(
+                'id' => $row['reserv_id'],
+                'start' => $row['start_datatime'],
+                'end' => $row['end_datatime']
+            );
+        }
+        return json_encode($data);
+    }
+
+    // get all reservation for calendar page home 
+    public function calendar_home()
+    {
+        $calendar = Reservation::getAll();
+        $data = array();
+        foreach ($calendar as $row) {
+            $title = $row['name_sport'] . ' ' . $row['terrain'];
+
+            $data[] = array(
+                'id' => $row['reserv_id'],
+                'start' => $row['start_datatime'],
+                'end' => $row['end_datatime'],
+                'title' => $title
+            );
+        }
+        return json_encode($data);
+    }
     // function for  select one terrain by terrain
     public function reservationChockout()
     {
@@ -32,19 +64,26 @@ class ReservationController
     public function checkReservation()
     {
         if (isset($_POST['check'])) :
+            $start_datatime = $_POST['start_datatime'] . ' ' . $_POST['hour_start'];
+            $end_datatime = $_POST['start_datatime'] . ' ' . $_POST['hour_end'];
+            // if (!$_POST['end_datatime'] = '') {
+            //     $end_datatime = $_POST['end_datatime'] . ' ' . $_POST['hour_end'];
+            // } else {
+            //     $end_datatime = $_POST['start_datatime'] . ' ' . $_POST['hour_end'];
+            // }
             $data = array(
                 'terrain_id' => $_POST['terrain_id'],
                 'sport_id' => $_POST['sport_id'],
-                'date_' => $_POST['date_'],
-                'hour_start' => $_POST['hour_start'],
-                'hour_fin' => $_POST['hour_fin']
+                'start_datatime' => $start_datatime,
+                'end_datatime' => $end_datatime
             );
+            print_r($data);
             $result = Reservation::check($data);
             if (
                 $result->terrain_id === $_POST['terrain_id'] && $result->sport_id === $_POST['sport_id']
-                && $result->date_ === $_POST['date_'] && $result->hour_start === $_POST['hour_start'] && $result->hour_fin === $_POST['hour_fin']
+                && $result->start_datatime === $_POST['start_datatime']
             ) {
-                Session::set('success', 'terrain de foot réservé');
+                Session::set('error', 'terrain de foot réservé');
                 Redirect::to('all-terrien');
             } else {
                 $_SESSION['reservation'] = $data;
@@ -61,9 +100,8 @@ class ReservationController
                 'user_id' => $_POST['user_id'],
                 'terrain_id' => $_POST['terrain_id'],
                 'sport_id' => $_POST['sport_id'],
-                'date_' => $_POST['date_'],
-                'hour_start' => $_POST['hour_start'],
-                'hour_fin' => $_POST['hour_fin'],
+                'start_datatime' => $_POST['start_datatime'],
+                'end_datatime' => $_POST['end_datatime'],
                 'status_reservation' => $_POST['status_reservation'],
             );
             $result = Reservation::add($data);

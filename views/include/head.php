@@ -26,8 +26,16 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    <!-- <link href="assets/css/core.css" rel="stylesheet"> -->
+    <link href="assets/js/fullcalendar/main.css" rel="stylesheet">
+    <style>
+        .fc-button {
+            background-color: #2793f2 !important;
+        }
 
+        .fc-col-header-cell-cushion {
+            color: black !important;
+        }
+    </style>
 
 </head>
 

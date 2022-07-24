@@ -34,15 +34,15 @@ $reservations = $data->getOneReservation();
                         <?php include('./views/include/alerts.php'); ?>
                         <h5 class="card-title pt-2 pb-2">Réservations</h5>
                         <div class="table-responsive text-nowrap">
-                            <table class="table">
+                            <table id="myreservation" class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Client</th>
                                         <th>Phone</th>
-                                        <th>terrain</th>
                                         <th>sport</th>
-                                        <th>date</th>
-                                        <th>heure</th>
+                                        <th>terrain</th>
+                                        <th>date et heure de début</th>
+                                        <th>date et heure de fin</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -54,8 +54,8 @@ $reservations = $data->getOneReservation();
                                                 <td> <?= $reservation['phone']; ?></td>
                                                 <td> <?= $reservation['terrain']; ?></td>
                                                 <td> <?= $reservation['name_sport']; ?></td>
-                                                <td> <?= $reservation['date_']; ?></td>
-                                                <td> <?= $reservation['hour_start']; ?> | <?= $reservation['hour_fin']; ?></td>
+                                                <td> <?= $reservation['start_datatime']; ?></td>
+                                                <td> <?= $reservation['end_datatime']; ?></td>
                                                 <td><span class="badge bg-success me-1"><?= $reservation['status_reservation']; ?></span></td>
                                             </tr>
                                         <?php endforeach; ?>

@@ -39,3 +39,38 @@
 </head>
 
 <body>
+    <style>
+        /* datatables */
+
+        .dataTables_filter {
+            float: right;
+            padding-right: 35px;
+            margin-bottom: 6px;
+        }
+
+        .dataTables_length {
+            width: 12rem;
+            padding-left: 20px;
+            margin: 0px 6px 0px 5px;
+        }
+
+        .dataTables_length,
+        .form-select {
+            margin: 0px 6px 0px 5px;
+        }
+
+        .dataTables_length>label {
+            display: flex;
+        }
+
+        .dataTables_info {
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+
+        .dataTables_paginate {
+            float: right;
+            padding-right: 35px;
+            padding-top: 20px;
+        }
+    </style>
