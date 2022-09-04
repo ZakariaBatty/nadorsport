@@ -80,7 +80,7 @@ require_once './views/include/header.php';
     <!-- End Terrian Section -->
 
     <!-- REservation  -->
-    <!-- <section class="bg-light" id="booking_calendar">
+    <section class="bg-light" id="booking_calendar">
         <div class="container">
             <div class="section-title">
                 <h2>
@@ -95,7 +95,7 @@ require_once './views/include/header.php';
                     </div>
                 </div>
             </div>
-    </section> -->
+    </section>
     <?php include('./views/pricing.php'); ?>
     <section id="services" class="services">
         <div class="container">
